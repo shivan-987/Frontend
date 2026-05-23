@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
+
+      body {
+        background: #f4f4f4;
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .cart-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #cartcount {
+        color: red;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .card {
+        background: white;
+        width: 250px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .card h2 {
+        margin: 10px 0;
+      }
+
+      .card p {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: green;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        background: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background: #333;
+      }
+
+      .cart-section {
+        margin-top: 40px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 10px 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      #total {
+        margin-top: 20px;
+        color: green;
+      }
+    </style>
+</head>
+<body>
+
+  <h1>Mini Shopping Cart</h1>
+  <h3 class="cart-title">cart items <span id="cartcount"> 0</span></h3>
+  <div class="container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="">
+      <h2>Nike Shoes</h2>
+      <p>2000</p>
+      <!--as soon as button clicked call the : addtocart() -->
+      <button onclick="addtocart('nike', 2000, 1)">Add to cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="">
+      <h2>Smart watch</h2>
+      <p>1500</p>
+      <!--as soon as button clicked call the : addtocart() -->
+      <button onclick="addtocart('smart watch', 1500, 1)">Add  to cart</button>
+    </div>
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="">
+      <h2>Headphones</h2>
+      <p>1200</p>
+      <!--as soon as button clicked call the : addtocart() -->
+      <button onclick="addtocart('headphones', 1200, 1)">Add to cart</button>
+    </div>
+
+
+  </div>
+
+  <div class="cart-section">
+    <h3>Card details</h3>
+    <div id="cartcontainer"></div>
+    <div id="total">Total 0</div>
+  </div>
+
+  <script>
+    // to store cart items names
+    let cart = []
+    // to store total price
+    let total = 0
+    // to store count of total items added to cart
+    let count =0 
+
+    // fn to add to cart
+    function addtocart(name, price, qty)
+    {
+        // Task - 1. update count 
+        // get id=cartcount from html doc and store it in cartcount variable
+        let cartcount = document.getElementById('cartcount')
+        // update count
+        count++
+        // show on the webpage
+        cartcount.innerHTML = count
+        
+        console.log(name, price)
+
+        // Task 2 : update cart items in the cart container
+
+        // make an object to store added items : each product has a name and a price and its quantity
+        let products = {
+            name, price, qty
+        }
+
+        let found = false
+        // add products to cart in form of key value pair
+        // before adding check if product already exists in cart, if yes update qty
+        for(i in cart)
+        {
+            // check if added item already exists in the cart
+            if(cart[i].name.includes(name))
+            {
+                // item already exists, so update qty
+                cart[i].qty++
+                console.log(cart[i])
+                found = true
+                break
+            }
+        } 
+          
+        //if item not exists, then add product to cart
+        if(found == false)
+        {
+            
+            cart.push(products)
+        }
+        console.log(cart)
+
+        // Task 3 : gEt total prize
+
+        // get id=total from html doc and store it in totalprize variable
+        let totalprize = document.getElementById('total')
+        //update total 
+        total += price
+        // show on webpage
+        totalprize.innerHTML = "Total " + total
+
+        // task 4 : show items names and prices added to cart
+
+        // get id=cartcontainer frm html doc and store it in cartcontainer variable
+        let cartcontainer = document.getElementById('cartcontainer')
+
+        // initialize what to show on webpage
+        cartcontainer.innerHTML = ''
+
+        // loop over each of the items of the cart to display them on the webpage
+        for(i of cart)
+        {
+            // `` : backticks used since want to print this small block of HTML code as it is on the webpage
+            let output = `<div class='cart-item'>
+                <h3>Item : ${i.name}</h3>
+                <p>Price : ${i.price}</p>
+                <p>Qty : ${i.qty}</p>
+
+                </div>
+            `
+
+            cartcontainer.innerHTML += output
+            
+        }
+
+        
+    }
+
+
+  </script>
+</body>        
+</html>
