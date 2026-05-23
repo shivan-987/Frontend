@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+    <script>
+        // break keyword : real life use case : Interview Favourite
+        // let attempts = 0
+        // let password = '1234'
+        // while(true)
+        // {
+        //     let pword = prompt('enter a password : ')
+        //     if(pword == password)
+        //     {
+        //         console.log('Login Successful')
+        //         break
+        //     }
+
+        //     attempts++
+        //     if(attempts == 3)
+        //     {
+        //         console.log('A/C blocked, try later...')
+        //         break
+        //     }
+        // }
+
+        //continue keyword : use case : Interview Fav
+        // let details = [
+        //     {name:'Sankalp', passed:true},
+        //     {name:'Umesh', passed:false},
+        //     {name:'Mona', passed:false},
+        //     {name:'Maitri', passed:true}
+        // ]
+
+        // console.log('The students who have passed are : ')
+        // for(student of details)
+        // {
+        //     if(student['passed'] == false)
+        //     {
+        //         continue
+        //     }
+        //     //if passed then get the names
+        //     console.log(student.name)
+        // }
+
+        // // functions, definition, call, return
+        // function division(a,b)
+        // {
+        //     if(b != 0)
+        //     {
+        //         console.log('Division possible...')
+        //         return a / b
+        //         console.log('The end') // never executed since 'return' terminated the fn
+        //     }
+
+        // }
+
+        // //fn call : BUT VALUE NOT RETURNED since logging not done
+        // division(10,5)
+
+        // //print fn name to get fn definition
+        // console.log(division)
+
+        // // get return value
+        // console.log(division(10,2))
+
+        // //CLOSURE - interview Q, not so imp
+        // function outer()
+        // {
+        //     let count = 0
+        //     console.log('outer executed')
+        //     return function()
+        //     {
+        //         count++
+        //         console.log(count)
+        //     }
+        // }
+
+        // console.log(outer) // fn names stores fn definition and so prints it
+        // outer() //executes outer fn
+        // console.log(outer()) // fn names outer loggesd so return value (here its the fn definition of inner fn)
+        // outer()() //executed inner fn
+        // console.log(outer()()) //// fn names inner loggesd so return value of inner fn)
+
+
+
+        // small application
+        let stddata = [
+            {name:'raj', marks:90},
+            {name:'ram', marks:70},
+            {name:'rani', marks:30}
+        ]
+
+        for(i of stddata)
+        {
+            let grade = ''
+            if(i.marks > 70)
+            {
+                grade = 'A'
+            }
+            else if(i.marks > 35)
+            {
+                grade = 'B'
+            }
+            else
+            {
+                grade = 'F'
+            }
+            // to print output on webpg not console
+            let output = `
+            <h1>$(i.name)</h1>
+            <div>$(i.marks)</div>
+            <h2>$(grade)</h2>
+            `
+            console.log(output)
+        }
+
+    </script>
+
+
+
+
+    </body>
+</html>

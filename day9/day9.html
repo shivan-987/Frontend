@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <!--inline insert js-->
+        <button onclick="console.log('inline insertion')">SUBMIT</button>
+        
+        <!--internal insert js-->
+        <script>
+            console.log('Hello World');
+        </script>
+
+        <!--external insert js-->
+        <script src ="demo.js">
+        </script>
+
+        <script>
+
+            // primitive data types using internal insertion of js
+            console.log('hello world');
+            //number
+            let a = 10;
+            let b = 10.5;
+
+            //string
+            let name = 'jonathon';
+
+            //null and boolean
+            let ceo=null ,admin=true;
+
+            //typeof varname
+            console.log(typeof a);
+            console.log(typeof b);
+            console.log(typeof name, name);
+            console.log('are you the admin ? ', admin);
+
+            // undefined
+            let number;
+            console.log(number);
+
+            // non-primitive data types using internal insertion of js
+
+            //array
+            let num = [1,2,3,4];
+            console.log(num);
+            console.log(typeof num);
+            console.log(num[0]);
+            console.log(num[4]);
+            console.log(num[-1]);
+            console.log(typeof num[0]);
+
+            //object
+            let list = {
+                name : 'nagaland',
+                capital : 'kohima'
+            };
+            console.log(list);
+            console.log(list.capital);
+            console.log(list['capital']);
+
+            //function
+            function multiply(num1, num2)
+            {
+                console.log(num1+'x'+num2+'='+num1*num2);
+            }
+
+            multiply(2,3); // fn call
+
+
+            // conditionals statements
+
+            let age = prompt("What is your age : ");
+            // user input : prompt()
+            let customer_name = prompt('What is your name : ');
+            if(age >= 18)
+            {
+                console.log(customer_name + ' is eligible to vote..');
+                console.log(typeof age);
+                console.log(typeof customer_name);
+
+            }
+            else
+            {
+                console.log(customer_name + ' is not eligible to vote..');
+            }
+
+            // loops : 
+
+            // 1. for loop
+            for(num=4;num>=0;num--)
+            {
+                console.log(num);
+            }
+
+            //2. while loop
+            let count = 4;
+            while(count > -1)
+            {
+                console.log('whole number : ' + count);
+                count--;
+            }
+
+            // 3. for in : iterator eg. i gives the index/keys and 
+            let nos = [10,20,30,40];
+            for(number in nos)
+            {
+                console.log(number); // for in -> iterator gives key/index
+                console.log(nos[3]); // to get value
+            }
+
+            // 4. for of : iterator gives the value
+            for(number of nos)
+            {
+                console.log(number); // for of ->iterator gives the value
+            }
+
+
+
+
+        </script>
+    
+    
+    </body>
+
+    
+
+</html>

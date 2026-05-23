@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>js basics</title>   
+    </head>
+    <body>
+        <!--insert js using inline and internal insertion method-->
+
+        <!--1. button to click and print a message-->
+        <button onclick="console.log('Hello From Button')">TRY ME !!!</button>
+
+        <script>
+            //2.create primitive data type variables
+            let name = prompt('Enter your name : ')
+            let age = 25
+            let student = false
+            console.log(name, typeof name, age, typeof age, student, typeof student)
+
+            //3.create array, access ele and loop over it
+            let array = []
+            // get input from user
+            for(i=0;i<5;i++)
+            {
+                array[i] = prompt('Enter a number : ')
+            }
+            // print array
+            let j = 0
+            while(j<5)
+            {
+                console.log(array[j])
+                j++
+            }
+            //for off
+            for(val of array)
+            {
+                console.log(val+ " : " + val**2)
+            }
+
+            //3. create obj, for in, access values using keys using both ways : square[] notation and dot(.) notation
+            let list = {
+                name : 'Manish',
+                team : 'India',
+                runs : 23500,
+                wickets : 24
+            }
+            for(key in list)
+            {
+                console.log(key + " : " + list[key])
+            }
+            console.log(list.name)
+            console.log(list.team)
+            console.log(list.runs)
+            console.log(list.wickets)
+        </script>
+
+
+    
+    </body>
+</html>
