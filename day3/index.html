@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>day 3 : HTMl forms and semantic elements</title>
+
+        <!-- to style (basic css) on all h1 and p tags : with div : not flexible(rigid)-->
+        <!-- <style>
+            h1{
+                background:red
+            }
+            p{
+                background:yellow
+            }
+        </style> -->
+
+    </head>
+    <body>
+        <!--today's cocnepts (remaining HTML):
+        1. div and span tag
+        2. semantic tags
+        3. forms-->
+
+        <!-- to put background color on all : but this is VERY INFLEXIBLE-->
+        <!-- <h1>home</h1>
+        <p>hello world, welcome </p>
+
+        <h1>about</h1>
+        <p>this is HTML</p> -->
+
+
+        <!--IMPP.. 1.) <div> tag : to group elements to apply styles on a group-->
+        <!--IMPP.. 2.) <span> tag : to group a text(NOT elements) for applying styles -->
+        
+
+        <!-- <div style="background:blue;">
+            <h1>home</h1>
+            <p> <span style="background:yellow;">hello world, welcome </span></p>
+        </div>
+
+        <div style="background: green;">
+            <h1>about</h1>
+            <p><span style="font-size: 30px;">this is HTML</span> </p>
+        </div> -->
+
+        <!-- (interview Q) SEMANTIC TAGS : taking meaningful tags -->
+        <!--case 1 : ambiguous : no clarity and less readable-->
+        <!-- <div>content</div>
+        <div>content</div>
+        <div>content</div>
+        <div>content</div>
+        <div>content</div> -->
+
+        <!--case 2 : clarity given what content to be given for each element : open tag + content + close tag
+        eg. in content for 1st , have to give header content 
+        
+        THESE ARE SEMANTIC TAGS-->
+
+        <!--header content-->
+        <!-- <header>content</header> -->
+        <!--navigation : routing(hyperlink : anchor tags)-->
+        <!-- <nav>content</nav> -->
+        <!-- main webpg content-->
+        <!-- <section>content</section> -->
+        <!--side content-->
+        <!-- <aside>content</aside> -->
+        <!--images/videos etc content-->
+        <!-- <article>content</article> -->
+        <!-- footer content-->
+        <!-- <footer>content</footer> -->
+
+        <!-- <form > element
+            form : main tag for the fields(each box eg. email etc)
+            label : it displays the information about a field
+            input : to get the field box eg. text/number/password box etc-->
+
+        <!--few imp attributes:
+        placeholder : give extra info about a field
+        required : compulsory field to fill can't leave this field box ,empty
+        value : to give a predefined value to a field box
+        name : it acts as a key(to identify the particular field box)
+        for and id : to build relations between the fields
+        action : where to send the data after submission eg.some database or email etc-->
+
+        
+        <!-- new webpage-->
+        <form action="">
+            <!--name , for and id here relate the fields label and input for Full name-->
+            <label for="un">Full Name</label><br>
+            <!--type attribute defines type of field box, placeholder attribute defines what is seen on the box-->
+            <input id="un" type="text" placeholder="Enter your full name" required value="john" name="urname"><br><br>
+
+            <!--email-->
+            <label for="em">Email Address</label><br>
+            <input id="em" type="email" placeholder="Enter your email address"><br><br>
+
+            <!--password-->
+            <label for="pword">Password</label><br>
+            <input type="password" placeholder="Create a password" id="pword" required><br><br>
+
+            <!--confirm password-->
+            <label for="cpword">Confirm Password</label><br>
+            <input type="password" placeholder="Confirm your password" id="cpword" required><br><br>
+
+            <!--gender : here <div> is acting like a header semantic tag to apply css styles-->
+            <div>Gender</div><br>
+            <!--radio button to choose a gender :
+             name attribute(act as key) allows only 1 option to be selected(indicates all options belong to the same radio box)
+             value attribute gives the predefined value
+             for and id : connects the fields : input and label-->
+            <input type="radio" name="gender" value="male" id="m">
+            <label for="m">Male</label>
+
+            <input type="radio" name="gender" value="female" id="f">
+            <label for="f">Female</label>
+
+            <input type="radio" name="gender" value="other" id="o">
+            <label for="o">Other</label><br><br>
+
+
+            <!--date of birth-->
+            <label for="dob">Date Of Birth</label><br>
+            <input type="date" id="dob"><br><br>
+
+            <!--country : DROPDOWN MENU <select> tag with <option> tags-->
+            <label for="cn">Country</label><br>
+            <select name="country" id="cn">
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="russia">Russia</option>
+            </select><br><br>
+
+
+            <!-- CHECKBOX : to select multiple options-->
+            <div>Select Your Skills</div>
+            <input type="checkbox">
+            <label>HTML</label>
+            <input type="checkbox">
+            <label>CSS</label>
+            <input type="checkbox">
+            <label>JS</label><br><br>
+
+            <!-- CHECKBOX : to select multiple options-->
+            <input type="checkbox" id="cbox">
+            <label for="cbox">I agree to the terms and conditions</label><br><br>
+
+
+            <!--<textarea> : when you want to get a lot of info from user-->
+            <label for="fback">Feedback</label><br>
+            <textarea name="feedback" id="fback"></textarea><br><br>
+
+            <!--button type=submit/reset etc-->
+            <button type="submit">Register Now</button>
+
+        </form>
+        
+    </body>
+</html>
