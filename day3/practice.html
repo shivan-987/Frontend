@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset ="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>final pure HTML practice</title>
+    </head>
+    <body>
+        <hr>
+        <!--<div> semantic tags : <header> <nav> <section> <aside> <article> <footer> -->
+        <header id="home">
+            <center>
+                <h2>Code Academy</h2>
+                <p>Learn &bull;   Build   &bull;   Grow</p>
+            </center>
+        </header>
+
+        <hr>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#register">Register</li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <section id="about">
+            <h2>About the Academy</h2>
+            
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmlAxplC4VyjicJjV5Dx2EL-M54Rm4QtP7Uw&s" alt="academy">
+            </article>
+
+            <article>
+                <p>in web development, we focus on <span>HTML</span>, <span>CSS</span>, <span>JS</span>, <span>React</span>, its going to be an exciting journey.</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="courses">
+            <h2>Courses We Teach</h2>
+            <article id="course-table">
+                <table border="3" cellpadding="10" width="100%">
+                    <tr>
+                        <th>Course</th>
+                        <th>Duration</th>
+                        <th>Trainer</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>HTML Basics</td>
+                        <td>1 month</td>
+                        <td>Alex</td>
+                    </tr>
+                    <tr>
+                        <td>CSS Mastery</td>
+                        <td>2 months</td>
+                        <td>Sarah</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>3 months</td>
+                        <td>John</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <br><hr>
+
+        <h2>Registration</h2>
+        <br>
+        <form action="" id="register">
+            <label for="sname">Student Name : </label>
+            <input type="text" placeholder="enter your name" required name="sname" id="sname">
+            <br><br>
+            <label for="mail">Email : </label>
+            <input type="email" placeholder="enter your email" required id="mail">
+            <br><br>
+            <label for="pword">Password : </label>
+            <input type="password" placeholder="create a strong password" required id="pword">
+            <br><br>
+            <label for="gender">Gender : </label>
+            <input type="radio" value="male" name="gender">Male
+            <input type="radio" value="female" name="gender">Female
+            <br><br>
+            <label for="selectcourse">Select Course : </label>
+            <select name="selected" id="selectcourse">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+            <br><br>
+            <div>Select known skills : </div>
+            <input type="checkbox" value="HTML">HTML
+            <input type="checkbox" value="CSS">CSS
+            <input type="checkbox" value="JS">JS
+            <br><br>
+            <label for="dob">Date of Joining : </label>
+            <input type="date" id="dob" name="dob">
+            <br><br>
+            <label for="addr">Address : </label><br>
+            <textarea name="address" id="addr"></textarea>
+            <br><br>
+            <label for="cbox">Terms and Conditions : </label><br>
+            <input type="checkbox" id="cbox">I agree to all the terms and conditions
+            <br><br>
+            <button type="Submit">Register</button>
+            <button type="reset">Refill</button>
+        </form>
+
+        <hr>
+
+        <aside>
+            <h2>Future Prospects</h2>
+            <ul>
+                <li>Upcoming Workshops</li>
+                <li>Hackathon dates</li>
+                <li>Placement Updates</li>
+            </ul>
+        </aside>
+
+        <hr>
+
+        <footer id="contact">
+            <h2>Contact</h2>
+            <a href="https://google.com">Github</a><br><br>
+            <a href="mailto:abc@gmail.com">Email</a>
+        </footer>
+
+        <hr>
+
+        <center>
+            <a href="#home">Back to Top</a>
+        </center>
+
+    </body>
+</html>
