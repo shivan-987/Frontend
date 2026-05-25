@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Form Validation</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:400px;
+        }
+
+        form{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:black;
+        }
+
+        small{
+            color:red;
+        }
+
+        .submit-btn,
+        .show-btn{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:black;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        .submit-btn:hover,
+        .show-btn:hover{
+            background:#333;
+        }
+
+        #successmessage{
+            margin-top:20px;
+            text-align:center;
+            color:green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>User Registration</h1>
+        <form action="" id="registerform">
+            <div class="form-group">
+                <label for="">Full Name</label>
+                <input type="text" placeholder="Enter your name" id="name">
+                <!--small tag used to display small error msg-->
+                <small id="nameerror"></small>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" placeholder="Enter your mail" id="email">
+                <!--small tag used to display small error msg-->
+                <small id="emailerror"></small>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <!--tpye : password hides the value of this field-->
+                <input type="password" placeholder="create your password" id="password">
+                <!--small tag used to display small error msg-->
+                <small id="passworderror"></small>
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="password" placeholder="Re-enter your password" id="cpassword">
+                <!--small tag used to display small error msg-->
+                <small id="cpassworderror"></small>
+            </div>
+            <button class="show-btn" type = "button" onclick="showpassword()">show password</button>
+            <button class="submit-btn" type="submit">submit</button>
+        </form>
+
+        <div id="successmessage"></div>
+    </div>
+
+   
+<script>
+// js code
+//1. get the form
+let form=document.getElementById('registerform')// get the form tags
+console.log(form)
+// define event/what to do on submitting the form
+form.onsubmit=function(e){
+    e.preventDefault()// prevent auto-submit of form
+    console.log('form submitted')
+    //2. get form fields by their ids
+    let name=document.getElementById('name')
+    let email=document.getElementById('email')
+    let password=document.getElementById('password')
+    let cpassword=document.getElementById('cpassword')
+    //check if form fields getting
+    console.log(name)
+    console.log(cpassword)
+
+    //3. collect error fields using their ids 
+    let nameerror=document.getElementById('nameerror')
+    let emailerror=document.getElementById('emailerror')
+    let passworderror=document.getElementById('passworderror')
+    let cpassworderror=document.getElementById('cpassworderror')
+    console.log(passworderror)
+
+
+
+    // to reset the errors after submission/showing the error message
+    nameerror.innerHTML=""
+    emailerror.innerHTML=""
+    passworderror.innerHTML=""
+    cpassworderror.innerHTML=""
+
+    //4. get values from each field .value or e.target[i].value and validate them
+    //check :  console.log(name.value)
+    //check :  console.log(e.target[0].value)
+
+
+
+    //performing form values validation
+    let isvalid=true;
+    if(name.value=="")
+    {
+        //if no name value given : error msg on the webpage
+        nameerror.innerHTML='Name is required'
+        // make flag invalid indicating form values is invalid and can't be submitted.
+        isvalid=false;
+    }
+
+    let emailpattern = /[a-zA-Z0-9_.]+@[a-z]+\.[a-z]{3}/
+    if(!email.value.match(emailpattern))
+    {
+        //if criteria doesn't match
+        emailerror.innerHTML='Enter valid email'
+        isvalid=false;
+    }
+
+    let passwordpattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8}/
+    if(!password.value.match(passwordpattern))
+    {
+        //if password rules don't match
+        passworderror.innerHTML = "Password must contain uppercase, number, special and minimum 8 characters."
+        isvalid=false;
+    }
+
+    if(cpassword.value == "")
+    {
+        cpassworderror.innerHTML = "Password required"
+        isvalid=false;
+    }
+    else if(cpassword.value != password.value)
+    {
+        // if both passwords don't match then
+        cpassworderror.innerHTML = "Password doesn't match"
+        isvalid=false;
+    }
+
+    let success=document.getElementById('successmessage')
+
+    if(isvalid){
+        //all validations are correct i.e after performing all validations isvalid=true 
+        // put success msg on the webpg
+        success.innerHTML ='Form Submitted Successfully.'
+    }
+
+
+    name.value="" // reset after submitting/value invalid
+    email.value=""// reset after submitting/value invalid
+    password.value=""// reset after submitting/value invalid
+    cpassword.value=""// reset after submitting/value invalid
+
+}
+
+function showpassword()
+{
+    let password=document.getElementById('password')
+    let cpassword=document.getElementById('cpassword')
+    if(password.type == 'password')
+    {
+        // if password hidden, then show
+        password.type = 'text'
+        cpassword.type = 'text'
+    }
+    else
+    {
+        // if password seen, then hide
+        password.type = 'password'
+        cpassword.type = 'password'
+    }
+}
+
+
+</script>
+
+</body>
+</html>

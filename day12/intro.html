@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>day 12 : building js webpages</title>
+    </head>
+    <body>
+        <form action="" id="registerform">
+            <input type="text" id="inp1" placeholder="enter ur name">
+            <input type="text" id="inp2" placeholder="enter ur mail">
+            <button type="submit">submit</button>
+        </form>
+
+        <script>
+            // //access the form
+            // let form=document.getElementById("registerform")
+            // console.log(form)
+            // //to get form values on submitting the form
+            // form.onsubmit=function(event){
+            //     //interview Q : how to not let form to get autosubmit
+            //     event.preventDefault()
+            //     //event : holds all info about the form
+            //     //event.target : holds all the user info
+            //     console.log(event.target[0])//name field
+            //     console.log(event.target[1])//email field
+            //     //but want value of form -> innerHTML for content but form has no content but values so, .value
+            //     console.log(event.target[0].value)//name field
+            //     console.log(event.target[1].value)//email field
+            //     //OR method 2
+            //     let inp1=document.getElementById('inp1') // u get the tags not the user entered values
+            //     let inp2=document.getElementById('inp2')
+            //     console.log(inp1.value) // to get value
+            //     console.log('form is submitted')
+
+            // }
+
+            // //regex : regular expressions
+            // let pattern = /hello/
+            // let text="hello@gmail.com"
+            // console.log(text.match(pattern))
+            // let patt=/[A-Z]/ // single capital letter [A-Z]+ >=1 occurrences of capital letters
+            // //eg.  /[A-Za-z0-9]+/, 
+            // // /[A-Za-z0-9]+{3}/ : means match any last 3 characters
+            // ///[A-Za-z0-9]+{3,7}/ : means match any last 3-7 characters only
+            // // . means match any character so for literal '.' use \.
+            // let emailpattern = /[a-zA-Z0-9_.]+@{a-z}+\.[a-z]{3}/
+            // console.log(text.match(emailpattern))
+
+            // //^ - must begin with
+            // // () : condn
+            // //?= defines the condition (can refer net for patterns, not req to remember, just understanding req)
+            // let passwordpattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8}/
+            // let password="Sai98$@ssd"
+            // console.log(password.match(passwordpattern))
+
+            
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
