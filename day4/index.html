@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>CSS : To new beginnings</title>
+        <link rel="stylesheet" href="externalcss.css">
+
+        <style>
+            /*declarations applied on all <p> tags*/
+            p{
+                color:blueviolet;
+                background-color:yellow;
+                font-family:sans-serif;
+                font-size: 23;
+            }
+            /* class selector applies styles on all class="demo" elements */
+            .demo{
+                color:yellowgreen;
+                background-color: aqua;
+                font-family: sans-serif;
+                font-size:medium;
+            }
+            /* id selector applies only on element with id="example" */
+            #example{
+                background-color:orange;
+            }
+
+            .el1{
+                background:yellow;
+                /*applies only on the content*/
+                width:200px;
+                height:300px;
+                padding:10px 20px 30px 40px; /*space around content but inside the element*/
+                /* border: width, style, color*/
+                border : 10px, double, orange;
+                margin:10px 20px 30px 40px;
+            }
+
+            .el2{
+                background:lightseagreen;
+                width:500px;
+                height:1000px;
+                padding: 20px 40px;
+                border: 5px, groove, purple;
+                margin : 40px 20px;
+            }
+
+            a{
+            display:block;
+            }
+
+            h1{
+            display:inline;}
+
+            span{
+                background: lightseagreen;
+                width:200px;
+                height:200px;
+                padding:20px;
+                margin:20px 30px;
+                display: inline-block; /*behaves as
+                inline but also follows prop of block*/
+            }
+
+            .demo{
+                color:blue;
+                width:764px;
+                height:100px;
+                display: inline-block;
+                border:20px dashed brown;
+            }
+
+            .bkgrnd{
+                background-color: magenta; 
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZk7-uHSxpaIpczIyj0Hjm5Ay6dn2VUbQFxQ&s");
+                height: 500px; 
+                background-repeat:no-repeat; 
+                background-size:100% 100%;  
+            }
+
+
+        </style>
+
+
+    </head>
+
+    <body>
+        <!--CSS = cascading style sheets language
+        cascading literally means flowing/pouring liquid
+        i.e. pouring some style sheets over HTML elements[<opentag> content </closetag]
+        
+        interview definition : 
+        "CSS is a stylesheet language that is used to create/describe the presentation/view of a webpage.
+        And it deals with the colours,fonts,animations and the layouts."
+         
+        Q1. How to put comments?
+        /* this is a comment */
+
+        Q2. how to insert css onto HTML:
+        i. inline CSS : styles will be applied directly to the element
+            eg. <h1 style="color:red;">inline styling</h1>
+            IMP : interpretation => h1 element has a style attribute with a property = color and its value = red
+            i.e. like HTML has elements/tags and attributes, CSS has properties:its values .
+            {property:value} : each such pair is called DECLARATION.
+         
+
+        ii. internal CSS : styles will be applied to the document using <style> tag in the <head></head>
+
+            <head>
+                ....
+                <style>
+                    // css syntax:
+                    selector{declarations}
+                    i.e.
+                    selector{
+                    prop1:value1;
+                    prop2:value2;
+                    ...}
+                    ..
+
+                </style>
+            </head>
+            IMPP : selector defines the address where the declaration(styles) must be applied.
+            "Selector is used to target the HTML elements for applying styles."
+
+        iii. External CSS (preferable): used to apply styles to MULTIPLE WEBPAGES.
+            -by creating a .css file
+            -attaching the html pages using <link> tag in <head> : type link:css then press enter to get: 
+            -<link rel="stylesheet" href="filename.css">
+        
+        IMMP : (Generally, depends on position of code for internal/inline/external link code)priority sequence for applying style on same element/selector : inline(highest) > internal > external(lowest)
+
+
+        Q3. Types of Selectors(imp types and classification ONLY):
+                1)Simple Selectors:
+                    a) element selector
+                    eg. h1{
+                        color:red;
+                        font-family:sans-serif;
+                        }
+                    
+                    b) class selector (can apply styles for multiple elements)
+                    eg. <div class="student_table">content</div>
+                    .student_table
+                    {
+                        color:red;
+                        font-family:sans-serif;
+                    }
+                    
+                    c)id selector (can apply styles uniquely on a element)
+                    eg.
+                    <h1 id="example">Hello world</h1>
+
+                    #example{
+                        background-color:orange;
+                    }
+
+                2)Combinators
+                3)pseudo class
+
+        Q4. (interview Q IMPP) boxmodel (CHECK OPEN WEBPAGE AND BY RIGHT CLICK AND INSPECT and select an element, to get better idea)
+            every HTML element holds 4 components
+            1) content : width and height.
+                eg.
+                width:200px;
+                height:100px;
+            2) padding : space AROUND the content and WITHIN the element.
+                eg. padding:50px; all sides
+                    padding:10px 20px 30px 40px; top(10px space top of content) right(30px space right of content) bottom  left (like a clockwise dir) 
+                    padding:10px 20px 30px; top left-right bottom
+                    padding:10px 20px; top-bottom left-right
+                
+            3) border : a line around an element.
+                border(a line): width, style, color;
+                eg. border : 10px, dashed, orange;
+                border-styles : solid/double/dashed/dotted/ridge/groove/none
+            4) margin : space outside an element/ space between this element and other elements AROUND IT.
+                (similar to padding BUT outside element unlike padding)
+                eg. padding:50px; all sides
+                    padding:10px 20px 30px 40px; top(10px space top of element) right(30px space right of element) bottom  left (like a clockwise dir) 
+                    padding:10px 20px 30px; top left-right bottom
+                    padding:10px 20px; top-bottom left-right
+                
+            element 1            element 2
+            ------------         ------------
+            | content  | margin  | content  | and all dotted lines : borders
+            | padding  |        | padding  |
+            ------------         ------------
+
+        
+        Q5. elements are classified based on behavior into :
+                1)inline elements : take only the req(not extra) space and 
+                DOESN'T start on newline.
+                eg. <a href="">link1</a> taken line-by-line o/p: side-by-side
+                <a href="">link2</a>
+                eg. to convert inline to block
+                a{
+                display:block;}
+
+                can't apply inline width, height, margin(top n bottom)       
+                eg. span{
+                background: lightseagreen;
+                width:200px;
+                height:200px;
+                padding:20px;
+                margin:20px 30px;
+                }
+
+                IMPP -> display:inline-block (behaves as inline element but 
+                take block lvl ele eg.width, height, margin)
+
+                2) block elements : take all the total space(despite not using all) and ALWAYs
+                starts on the newline
+                eg.         <h1>hello</h1> <h1>world</h1>  : taken side-by-side o/p : line-by-line
+                eg. to convert block to inline
+                h1{
+                display:inline;}
+
+        Q6. background attribute's properties:
+            eg.
+            .bkgrnd{
+                background-color: golden; 
+                background-image: url("path:absolute/relative");
+                height: 500px; 
+                background-repeat:no-repeat; //since sometimes to cover the height, 
+                // image might repeat to fill the space
+                background-size:100% 100%; // x-axis y-axis 
+            }
+
+
+
+        -->
+        
+        <!--eg of inline,internal,external styling-->
+        <!-- <h1 style="color:red;">inline styling</h1>
+
+        <p>Hello world, Today I am grateful to be in a position to start learning <br>
+            thank you so much.</p>
+
+        <p><br>Cascading Style Sheets</p>
+
+        <h2>Google.com</h2> -->
+
+        <!--eg of simple selectors : element, class and id selectors-->
+        <!-- <div class="demo">
+            <h1>Hello
+                 world</h1>
+            <h3>I have started styling my HTML webpages using CSS.</h3>
+        </div>
+
+        <h1 id="example">Hello CSS</h1> -->
+
+        <div class="el1">box1</div>
+        <div class="el2">box2</div>
+
+        <h1>hello</h1> <h1>world</h1> <!--taken side-by-side o/p : line-by-line-->
+
+        <a href="">link1</a> <!--taken line-by-line o/p: side-by-side-->
+        <a href="">link2</a>
+
+        <!-- <p>Hello world, my currency is <span>dollar</span> and 1 rupee is 99 <span>dollars</span></p> -->
+
+        <div class="demo">
+            <h1>Cascading, Life</h1><br>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNTDuBhXAPYxxhB-7nE7hQ8dqHZy9l178N_w&s" alt="">
+            <p>United States of <span>America</span></p>
+        </div>
+
+        <div class="bkgrnd">
+            <h4>Donald Trump</h4>
+        </div>
+
+
+    </body>
+</html>
