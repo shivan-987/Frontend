@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secret Console CLub</title>
+
+        <!--IMPP : how to use `` in console.log
+        console.log(`Hello ${user}`)-->
+    <style>
+        body {
+            background-color: #2d2d2d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        button {
+            background-color: #00ff88;
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+        }
+        button:hover {
+            background-color: #00cc6a;
+        }
+    </style>
+  
+    </head>
+
+    <body>
+        <!--create a button and onclick define the action using inline js-->
+        <button type="button" onclick="startClub()">ENTER CLUB</button>
+
+
+
+
+
+    <script>
+        // defining the startClub()
+        function startClub()
+        {
+            // array of drinks
+            drinks = [{name:"Water",price:100}, {name:"Soda",price:200}, {name:"Juice",price:300}]
+            console.log(drinks)
+            // show the user menu on the console
+            console.log("Welcome To the Club.....")
+            console.log("Please Take a look at the menu : \n|DRINK  |  PRICE|")
+            for(beverage of drinks)
+            {
+                console.log("|"+ beverage.name + " | " + beverage.price + "|")
+            }
+
+            //ask user'name and age
+            let user = prompt("Please enter your name : ")
+            let age = prompt("Please enter your age : ")
+            
+            //check if underage?
+            if(age>=18)
+            {
+                //IMPP : how to use `` in console.log
+                console.log(`Hello ${user}` + "\nPlease Give your Order : ")
+                let item = prompt("Which drink  : ")
+                let qty = prompt("Enter quantity : ")
+                calculateTab(100, qty)
+                
+            }
+            else
+            {
+                console.log("Sorry "+`${user}` + " you are underage, can't let you in, bye...")
+                return
+            }
+        }
+
+
+        function calculateTab(drinkprice, qty)
+        {
+            let cost = drinkprice * qty
+            console.log("Thanks for your order ....")
+            console.log("Please pay the bill of " + `${cost}` + " to get your order.")
+        }
+
+    </script>
+
+
+    </body>
+</html>

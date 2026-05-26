@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Analyzer</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background-color:#f4f4f4;
+            padding:40px;
+        }
+
+        .container{
+            width:700px;
+            margin:auto;
+            background-color:white;
+            padding:30px;
+            border:3px solid black;
+            border-radius:10px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        button{
+            padding:12px 20px;
+            background-color:black;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            margin-bottom:25px;
+        }
+
+        button:hover{
+            background-color:#333;
+        }
+
+        #output{
+            margin-top:20px;
+        }
+
+        .student-card{
+            border:2px solid gray;
+            padding:20px;
+            margin-bottom:20px;
+            background-color:#fafafa;
+            border-radius:8px;
+        }
+
+        .student-card h2{
+            margin-bottom:10px;
+        }
+
+        .student-card p{
+            margin-bottom:8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Result Analyzer</h1>
+
+        <button type="button" onclick="analyzestudents()">
+            Analyze Students
+        </button>
+
+        <div id="output">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /*
+            WRITE YOUR JAVASCRIPT HERE
+
+            REQUIREMENTS:
+
+            1. Create students array of objects
+            2. Create analyzestudents() function
+            3. Use loop
+            4. Apply grade conditions
+            5. Show output using innerHTML
+            6. Use template literals
+        */
+
+        // object containing each student info
+        let student1 = {
+            name : 'Rahul Verma',
+            totalmarks : 90 
+        }
+
+        let student2 = {
+            name : 'Vama Gupta',
+            totalmarks : 45
+        }
+
+        let student3 = {
+            name : 'Miraz Shah',
+            totalmarks : 73 
+        }
+
+    
+        // add student details to a list
+        let student_list = []
+
+        student_list.push(student1)
+        student_list.push(student2)
+        student_list.push(student3)
+
+        //loop through list to check
+        // for(i in student_list)
+        // {
+        //     // console.log(student_list[i])
+        // }
+        
+        function analyzestudents()
+        {
+            // loop over each student -> assign grade based on marks 
+            // -> decide whether or not eligible for scholarship -> display on webpg
+            for(i of student_list)
+            {
+                // console.log(i)
+                // console.log(i['name'])
+                let grade = gradeassigner(i['totalmarks'])
+                // console.log(grade)
+                // add grade to student info
+                i.grade = grade
+                // console.log(i) // check if updated info
+                let eligibility = iseligible(i["totalmarks"])
+                // console.log(eligibility)
+                //add to info
+                i.scholarship = eligibility
+                // console.log(i) // check info updated
+            }
+
+            // report to be shown using div element id=output
+            // get it first and store in a variable say ans
+            let outputcontainer = document.getElementById('output')
+            // now put ans onto webpage using .innerHTML
+            outputcontainer.innerHTML = ''
+            
+            for(student of student_list)
+            {
+                let report = `
+                <div class='student-card'>
+                <p>Name : ${student.name}<br>
+                                Marks : ${student.totalmarks}<br>
+                                Grade : ${student.grade}<br>
+                                ${student.scholarship}</p>
+                                <br>
+                             <hr>
+                             <br>
+                </div>`
+                console.log(report)
+
+                // now display results to the webpage
+                outputcontainer.innerHTML += report
+            }
+
+            
+            
+            
+        }
+
+        // to get the grade
+        function gradeassigner(marks)
+        {
+            if(marks > 80)
+            {
+                return 'A'
+            }
+            else if(marks > 50)
+            {
+                return 'B'
+            }
+            else
+            {
+                return 'F'
+            }
+        }
+
+        // to check eligibility
+        function iseligible(marks)
+        {
+            if(marks > 75)
+            {
+                return "Eligible for scholarship"
+            }
+            else
+            {
+                return "Not Eligible for scholarship"
+            }
+        }
+        
+
+
+    </script>
+
+</body>
+</html>

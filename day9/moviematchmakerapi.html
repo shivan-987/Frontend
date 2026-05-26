@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>JS basics : Data Filtering</title>
+        <!--clean the console, to remove old results
+        console.clear() -->
+
+    </head>
+
+    <style>
+    body {
+        background-color: #0f0f1a;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+        color: #e0e0e0;
+    }
+    .search-console {
+        background-color: #1a1a2e;
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        border: 1px solid #e50914;
+    }
+    button {
+        background-color: #e50914;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: transform 0.2s;
+    }
+    button:hover {
+        transform: scale(1.05);
+        background-color: #ff1f2a;
+    }
+    h1 {
+        color: #e50914;
+        margin-bottom: 30px;
+    }
+    </style>
+
+    <body>
+
+        <!--step 1 : the trigger-->
+        <div class="search-console">
+            <h1>Movie MatchMaker Database</h1>
+            <button type="button" onclick="findMovies()">Recommend Some Movies</button>
+        </div>
+        
+        <script>
+            //step 2 : the mock database(array & objects)
+            function findMovies()
+            {
+
+                // clean the console, to remove old results
+                console.clear()
+                let movieDB = [
+                    {title : "Jumanji : Welcome to the jungle", genre : "comedy", ageRating : 5},
+                    {title : "IT", genre : "horror", ageRating : 18},
+                    {title : "Mission Impossible :Rogue Nation", genre : "action", ageRating : 5},
+                    {title : "sita ramam", genre : "romance", ageRating : 5},
+                    {title : "Annabelle : creations", genre : "horror", ageRating : 18}
+                ]
+
+                // step 3 : the search query
+                let usr_age = prompt("Please enter your age : ")
+                let usr_genre = prompt("Please enter the genre you are interested in : ")
+
+                //step 4 : the filtering engine
+                let matchCount = 0
+
+                for(movie in movieDB)
+                {
+                    if((movieDB[movie]['genre'] == usr_genre) && (usr_age >= movieDB[movie]['ageRating']))
+                    {
+                        matchCount++
+                        console.log(`${matchCount} Movies found : \nMOVIE NAME : ${movieDB[movie]['title']}`)
+                    }
+                }
+                if(matchCount == 0)
+                {
+                    console.log(`Sorry, no movies found for that genre/age`)
+                }
+            }
+        </script>
+
+
+    </body>
+
+</html>

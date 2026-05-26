@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS basics task : Data Modelling</title>
+
+        <!--IMPP...-->
+        <!--1.using backticks similar to python f-strings-->
+        <!--console.log(`User: Mr. ${accountinfo.name}, your bill is ${walletbalance} Rs.`);-->
+        <!--2. if let not used to define variables eg.loop counter/just a variable : its considered global variable-->
+
+
+        <style>
+    body {
+        background-color: #1e1e2f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+    }
+    .panel {
+        background-color: #2a2a40;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+    button {
+        background-color: #4d4dff;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #7070ff;
+    }
+    p {
+        color: #a0a0b8;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+</style>
+    </head>
+
+    <body>
+        <!--step 1 : The Trigger--> 
+        <div class="panel">
+            <!--create the button and use inline js for trigger-->
+            <button type="button" onclick="runCheckout()">Process Checkout</button>
+        </div>
+
+
+
+       <!--step 2 : Mocking API data(Obj and arrays)-->
+       <script>
+        function runCheckout()
+        {
+            let accountinfo = 
+                {
+                    name : "Avinash Thakur", walletBalance : 1000, isPremiumMember : true
+                }
+
+            let cartarray = [
+                {itemName : "Sandals", price : 500},
+                {itemName : "Coke", price : 100},
+                {itemName : "Bread", price : 50}
+            ]
+            
+
+
+            // step 3 : calculate the subtotal
+            let subtotal = 0
+
+            for(product of cartarray)
+            {
+                subtotal += product.price
+            }
+
+            console.log("User : Mr." + `${accountinfo.name}` + " your bill is " + `${subtotal}` + " Rs.")
+
+            let finalTotal = calculateDiscount(subtotal, accountinfo['isPremiumMember'])
+            
+            //step 5: the final transaction
+            if(accountinfo.walletBalance >= finalTotal)
+            {
+                //transaction possible
+                let walletbalance = accountinfo.walletBalance - finalTotal
+                console.log("transaction successful....")
+                console.log(`User: Mr. ${accountinfo.name}, your bill is ${walletbalance} Rs.`);
+            }
+            else
+            {
+                //transaction not possible
+                console.log("transaction failed : due to insufficient funds...Try Again")
+            }
+
+        }
+
+        // step 4 : discount logic
+        function calculateDiscount(totalAmount, isPremium)
+        {
+            if(isPremium)
+            {
+                //is a premium member, give discount 10%
+                let discount = (0.1 * totalAmount)
+                return totalAmount - discount
+            }
+            else
+            {
+                //no discount
+                return totalAmount
+            }
+        }
+
+
+
+
+
+
+       </script> 
+
+
+    </body>
+
+
+
+
+</html>
