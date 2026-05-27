@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>State Management</title>
+
+        <style>
+            body {
+                background-color: #191414;
+                color: #FFFFFF;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+            }
+            h1 {
+                color: #1DB954; /* Spotify Green */
+                margin-bottom: 5px;
+            }
+            .controls {
+                margin: 20px 0;
+                display: flex;
+                gap: 15px;
+            }
+            button {
+                background-color: #1DB954;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                padding: 12px 24px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            button:hover {
+                transform: scale(1.05);
+                background-color: #1ed760;
+            }
+            #remove-btn {
+                background-color: #e22134;
+            }
+            #remove-btn:hover {
+                background-color: #ff3347;
+            }
+            .playlist-container {
+                background-color: #282828;
+                width: 400px;
+                border-radius: 10px;
+                padding: 20px;
+                min-height: 200px;
+            }
+            .song-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 12px;
+                border-bottom: 1px solid #333;
+                font-size: 18px;
+                font-style: italic;
+            }
+            .song-index {
+                color: #b3b3b3;
+                font-size: 14px;
+                margin-right: 15px;
+            }
+            #track-count {
+                color: #b3b3b3;
+                font-size: 14px;
+                text-align: right;
+                margin-top: 15px;
+                font-style: bold;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>My Vibes Playlist</h1>
+        <!--The UI-->
+        <div class="controls">
+            <button type="button" onclick="addSong()">Add Track</button>
+            <button type="button" id="remove-btn" onclick="removeSong()">Remove Track</button>
+        </div>
+
+        <!--id for .getElement*()-->
+        <div id="playlist-board" class="playlist-container">
+    
+        </div>
+
+        <script>
+            //step 2 : the state/array, list of the songs
+            // IMPP : can't use 'const', since i want to add and delete operations
+            let playlist = []
+
+            // step 3 : add fn
+            function addSong(){
+                let usr_song = prompt("Enter Song name : ")
+                if(usr_song != "")
+                {
+                    // if not empty, add to the list
+                    playlist.push(usr_song)
+
+                    //show updated playlist
+                    renderPlaylist()
+                }
+                else
+                {
+                    alert('please enter to song name to add track')
+                }
+            }
+
+            //step 4 : remove fn
+            let removeSong = () =>{
+                let usr_song_id = Number(prompt('Enter id of the song to delete : '))
+                if(!isNaN(usr_song_id) && usr_song_id < playlist.length)
+                {
+                    // a valid number, and valid index
+                    playlist.splice(usr_song_id,1)
+                 
+                    //show updated playlist
+                    renderPlaylist()
+                }
+                else
+                {
+                    alert('please enter a valid song id')
+                }
+            }
+
+            function renderPlaylist(){
+                // step 5 :  DOM injection(wipe out the whole board and show again) and show total songs
+
+                // get addr of where to display
+                let board = document.getElementById('playlist-board')
+
+                // clear out old data
+                board.innerHTML = ''
+
+                // what to display new
+                for(let songNo in playlist)
+                {
+                    let songlist = `<div class="song-item">
+                        <div> <span class="song-index">${songNo}.</span> ${playlist[songNo]}</div>
+                        </div>`
+
+                    // put on webpage
+                    board.innerHTML += songlist
+                }
+                // display total track count
+                board.innerHTML += `<div id="track-count">
+                    total tracks : ${playlist.length}
+                    </div>`
+            }
+        </script>
+
+    </body>
+
+</html>
