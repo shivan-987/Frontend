@@ -15,7 +15,7 @@
         <script>
             // //access the form
             // let form=document.getElementById("registerform")
-            // console.log(form)
+            // console.log(form)    
             // //to get form values on submitting the form
             // form.onsubmit=function(event){
             //     //interview Q : how to not let form to get autosubmit
@@ -41,16 +41,18 @@
             // console.log(text.match(pattern))
             // let patt=/[A-Z]/ // single capital letter [A-Z]+ >=1 occurrences of capital letters
             // //eg.  /[A-Za-z0-9]+/, 
-            // // /[A-Za-z0-9]+{3}/ : means match any last 3 characters
-            // ///[A-Za-z0-9]+{3,7}/ : means match any last 3-7 characters only
+            // // /[A-Za-z0-9]{3}/ : only 3 characters
+            //             // ///[A-Za-z0-9]+{3,7}/ : means match any last 3-7 characters only
             // // . means match any character so for literal '.' use \.
             // let emailpattern = /[a-zA-Z0-9_.]+@{a-z}+\.[a-z]{3}/
             // console.log(text.match(emailpattern))
 
-            // //^ - must begin with
+            // //^ - must begin with -> marks start of pattern
+            // $ : must end with -> marks end of pattern i.e if u want to check whole text, regex must end with $, if only want to check part of text, dont use $
             // // () : condn
             // //?= defines the condition (can refer net for patterns, not req to remember, just understanding req)
-            // let passwordpattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8}/
+            // let passwordpattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8}/ match first 8 characters (checks only part of password)
+            // let passwordpattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/ atleast 8 characters total since $ used(checks whole password) 
             // let password="Sai98$@ssd"
             // console.log(password.match(passwordpattern))
 

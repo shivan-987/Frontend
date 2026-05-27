@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="end">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM events and Regex</title>
+
+        <style>
+            * { 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; }
+
+            body { background: #eef2f5;
+                 display: flex; 
+                 justify-content: center; 
+                 align-items: center;
+                  height: 100vh;
+                   margin: 0; }
+            .card { background: white; 
+                padding: 40px; 
+                border-radius: 12px;
+                 box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                  width: 450px; }
+            h2 { margin-top: 0;
+                 color: #2c3e50;
+                  text-align: center; }
+            .form-group { margin-bottom: 20px; }
+            label { display: block;
+                 font-size: 14px; 
+                 font-weight: bold; 
+                 margin-bottom: 8px; 
+                 color: #34495e; }
+            input { width: 100%;
+                 padding: 12px; 
+                 border: 2px solid #ddd;
+                border-radius: 6px;
+                font-size: 16px;
+                outline: none;
+                transition: border-color 0.3s; }
+            input:focus { border-color: #3498db; }
+            small { display: block; 
+                color: #e74c3c; 
+                font-size: 12px;
+                 margin-top: 5px;
+                font-weight: bold; 
+                min-height: 15px; }
+            button { width: 100%;
+                 padding: 14px;
+                  background: #3498db;
+                   color: white;
+                    border: none;
+                     border-radius: 6px;
+                      font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background 0.3s; }
+            button:hover { background: #2980b9; }
+            
+            #profile-output { margin-top: 30px;
+                display: none; 
+                padding: 20px; 
+                background: #f8f9fa; 
+                border-left: 4px solid #2ecc71; 
+                border-radius: 4px; }
+            .profile-line { margin: 10px 0; 
+                font-size: 16px; 
+                color: #2c3e50; }
+            .success-text { color: #2ecc71; 
+                font-weight: bold; 
+                text-align: center; 
+                margin-bottom: 15px; }
+        </style>
+    </head>
+
+    <body>
+        
+        <!--step 1 : the HTML form : id used since req in .getElement*()-->
+        <div class="card" >
+            <form action="" id ="profileForm">
+            <label for="uname">Username : </label>
+            <input type="text" placeholder="enter valid username" name="usr_name" id="usernameInp">
+            <small id="userErr"></small>
+
+            <br>
+
+            <label for="pin">PIN Code : <small style="display:inline">*only numeric pin</small></label>
+            <input type="password" name="usr_pin" placeholder="enter valid pin" id="pinInp">
+            <small id="pinErr"></small>
+
+            <br>
+
+            <label for="">Website URL : </label>
+            <input type="text" name="usr_url" placeholder="enter valid url" id="urlInp">
+            <small id="urlErr"></small>
+
+            <button type="suxbmit" class="submit-btn">Submit</button>
+            </form>
+            <!--step 2 : area for getting/placing the output-->
+            <div id ="profile-output">
+                <div class="success-text"></div>
+            </div>
+        </div>
+
+
+        <script>
+            let usr_form = document.getElementById('profileForm')
+            console.log(usr_form)
+            // event listener, as soon as submitted
+            usr_form.onsubmit = (form_event)=>{
+                // remove default : form auto submit feature
+                form_event.preventDefault()
+                
+                let usr_name = form_event.target[0].value
+                let usr_pin = form_event.target[1].value
+                let usr_url = form_event.target[2].value
+
+                // get error fields also
+                let uname_err = document.getElementById('userErr')
+                let pin_err = document.getElementById('pinErr')
+                let url_err = document.getElementById('urlErr')
+
+
+                //reset error messages
+                uname_err.innerHTML = ""
+                pin_err.innerHTML = ""
+                url_err.innerHTML = ""
+
+
+                //step 4 : validation using regex
+                let isValid = true
+
+                //username can't be empty
+                if(!usr_name.length)
+                {
+                    // empty name , send error msg
+                    uname_err.innerHTML = "Please give a username, must have a username"
+                    isValid = false
+                }
+
+                //only 4/6 digit pin allowed
+                let pinpattern = /^(\d{4}|\d{6})$/
+                if(!usr_pin.length)
+                {
+                    //empty pin
+                    pin_err.innerHTML = "No Pin given, must have a pin"
+                    isValid = false
+                }
+                
+                else if(!usr_pin.match(pinpattern))
+                {
+                    //pattern doesn't match
+                    pin_err.innerHTML = "Invalid Pin, Please ensure the pin consists of 4/6 digits ONLY.<br>(no other characters allowed)"
+                    isValid = false
+                }
+
+                //url check
+                let urlpattern = /^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(\/\S*)?$/
+                if(!usr_url.match(urlpattern))
+                {
+                    url_err.innerHTML = "Invalid URL, please re-check and re-submit."
+                    isValid = false
+                }
+                
+                // step 5 : if validation success
+                if(isValid)
+                {
+                    let output = document.getElementById('profile-output')
+                    // change CSS to make it visible
+                    output.style.display='block'
+
+                    let text = `<div class="success-text">
+                        Username : ${usr_name} 
+                        <br>
+                        URL      : ${usr_url} 
+                        <div class="profile-line">
+  <p>Successfully Validated</p>
+                            </div>
+                        </div>`
+
+                    output.innerHTML = text
+
+                    //hide the form
+                    usr_form.style.display = 'none'
+                }
+
+                
+            } 
+
+
+        </script>
+
+    </body>
+
+
+
+</html>
