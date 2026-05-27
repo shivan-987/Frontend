@@ -1,0 +1,93 @@
+<!--MOST IMMP TOPIC AND 100% INTERVIEW FAVOURITE-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API concepts</title>
+</head>
+
+<body>
+
+    <script>
+        // (confirm interview Q)
+        /* since js : line by line execution (interpreted) therefore,
+        synchronous js code : 
+        which executes line by line, which doesn't take time(block) (wait until previous instruction gets executed)
+        asynchronous js code ( to avoid blocking of code that doesn't take time):
+        parallel lvl of execution 
+        eg. timers, API calls (during this time js executes 
+        synchronous codes which don't take time(block))*/
+
+
+        /* related to asynch code eg.API calls 
+        1) callbacks (do if req, not compulsory)
+        2) promises (confirm interview Q)
+        used to represent eventual completion/failure of an asynchronous operation.
+        promise has 3 states (eg. take bank transaction example): 
+        1) fulfilled (payment done)
+        2) rejected  (payment failed)
+        3) pending  (payment pending)
+        so API calls also have 3 states.
+
+        promise has 2 steps : 
+        1)promise creation (uses callbaack fn)
+        eg. let prom = new Promise((resolve, reject)=>
+        {
+            let val = 10
+            if(val==10)
+            {
+            resolve('prom resolved')}
+            else
+            {
+            reject('prom failed')}
+        })
+
+        2) promise consumption
+        eg. (IMPP.. when data recieved from API call, validation)
+        (similar to try and catch in python)
+        prom.then((data)=>console.log(data))
+        .catch((err)=>console.log(err)
+
+        3)async await
+        -also used to handle asynchronous operation
+        (simpler than promise)
+        INTERVIEW Q.
+        async(performing asynchrous task) and await(eg. if API call made, 
+        js made to wait until data recieved i.e pauses execution of this block until data recieved) keywords
+        async function checkdata(){
+        let a = await prom
+            console.log(a)
+        }
+        checkdata()
+
+        /*
+        API calls:
+        fetch() : used to make API calls in js
+        fetch(apilink) returns a promise
+        to consume a promise:
+        1)then catch
+        2)async await (only drawback is it doesnt handle erros unlike catch so use try catch)
+        */
+       
+        let apilink = "https://fakestoreapi.com/products"
+
+        // mtd 1
+        // (api data) json(javascript object notation) to js object : .json(), also then shows the flow i.e if then throws error, catch executes
+        fetch(apilink).then((val)=>val.json())
+        .then((data)=>console.log(data))
+        .catch((err) =>console.log(err))
+
+        // mtd 2
+        async function getapidata(){
+            let val = await fetch(apilink) // wait until fetch()
+            let finalval = await val.json() // wait until json->js object
+            console.log(finalval) // log data recieved
+        }
+
+        getapidata()
+
+    </script>
+    
+</body>
+</html>

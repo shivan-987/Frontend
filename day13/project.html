@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!--template literals similar to python f strings : ${}-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
+
+      body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background: white;
+        width: 400px;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .search-box {
+        display: flex;
+        gap: 10px;
+      }
+
+      input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      button {
+        padding: 12px 20px;
+        border: none;
+        background: black;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #333;
+      }
+
+      .weather-box {
+        margin-top: 30px;
+      }
+
+      .weather-box h1 {
+        font-size: 50px;
+        margin: 10px 0;
+      }
+
+      .weather-box h3 {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>Weather app</h1>
+      <div class="search-box">
+        <!-- id attribute used, since value of form taken using id i.e document.getElementbyId()-->
+        <input type="text" placeholder="Enter city name" id="city">
+        <button onclick="getapidata()">search</button>
+      </div>
+      <!-- id attribute used, since value of form taken using id i.e document.getElementbyId()-->
+      <div class="weather-box">
+        <h2 id="name"></h2>
+        <h1 id="temp"></h1>
+        <h2 id="state"></h2>
+        <h3 id="humid"></h3>
+      </div>
+    </div>
+
+
+   <!--API key: openweathermap.org make account and get key-->
+   <script>
+    async function getapidata() {
+        let city = document.getElementById('city')
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=metric&appid=466ddaa21a8de191e9f608bd11a56acb`
+        let data = await fetch(url)
+        let weatherdata = await data.json()
+        console.log(weatherdata)
+
+        let name = document.getElementById('name')
+        name.innerHTML = city.value.toUpperCase()
+        let temp = document.getElementById('temp')
+        temp.innerHTML = `${weatherdata.main.temp} &deg;C`
+        let state = document.getElementById('state')
+        state.innerHTML = weatherdata.weather[0].main
+        let humid = document.getElementById('humid')
+        humid.innerHTML = `Humidity level : ${weatherdata.main.humidity}% `
+    }
+
+    
+
+
+   </script>
+  </body>
+</html>
