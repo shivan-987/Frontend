@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        <title>DOM Manipulation</title>
+
+    <style>
+    body {
+        background-color: #f4f7f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+    h1 {
+        color: #2c3e50;
+    }
+    #task-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        max-width: 800px;
+        margin-top: 30px;
+    }
+    .task-card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        width: 250px;
+        border-left: 5px solid #3498db;
+    }
+    .task-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .task-status {
+        font-size: 14px;
+        color: #7f8c8d;
+    }
+    </style>
+    </head>
+
+    <body>
+
+        <h1>Active Task Board</h1>
+        <!--step 1. the HTML target where o/p will come-->
+        <div id="task-container">
+        </div>
+
+        <script>
+
+            //step 2 : The data(array of objects)
+            const taskList = [
+                {title : 'laundry', id : 100, status : 'completed'},
+                {title : 'mopping', id : 101, status : 'pending'},
+                {title : 'ironing', id : 102, status : 'pending'},
+                {title : 'cooking', id : 103, status : 'completed'}
+            ]
+
+            // step 3 : arrow fn
+            let renderTasks = ()=>{
+                //step 4 : logic 
+                let board = document.getElementById('task-container')//found where to display
+                for(let task of taskList)
+                {
+                    if(task['status'] == 'completed')
+                    {
+                        continue //only want active tasks
+                    }
+
+                    // step5 : DOM injection(template literals)
+                    let htmlcontent = `<div class="task-card">
+                        <div class="task-title">Task : ${task.title}</div>
+                        <div class="task-status">Status : ${task['status']}</div>
+                        </div>`
+
+                    // put onto the htmlwebpg at place 'board' ; += since all active tasks must be shown,so append
+                    board.innerHTML += htmlcontent
+
+                }
+            }
+
+            // step 6: The trigger : fn call/invoke as soon as page loads
+            renderTasks()
+
+        </script>
+
+    </body>
+</html>

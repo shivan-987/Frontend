@@ -112,12 +112,31 @@
             }
             // to print output on webpg not console
             let output = `
-            <h1>$(i.name)</h1>
-            <div>$(i.marks)</div>
-            <h2>$(grade)</h2>
+            <h1>${i.name}</h1>
+            <div>${i.marks}</div>
+            <h2>${i.grade}</h2>
             `
             console.log(output)
         }
+
+        //anonymous fn : 1 time fn with no fn name but function keyword used
+        ans = function()
+        {
+            return console.log('hello world')
+        }
+        console.log(ans()) 
+
+        //arrow fn : fn name and => used BUT function keyword not used
+        // syntax :
+        /*
+        let/var/const fnname = (parameters) =>{
+            //fn body
+        }*/
+
+        let logging = ()=>{
+            return console.log('hello world')
+        }
+        console.log(logging())
 
     </script>
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conditional Styling</title>
+    
+        <style>
+            body {
+                background-color: #121212;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                font-family: 'Courier New', Courier, monospace;
+                color: #ffffff;
+            }
+            h1 {
+                color: #f3ba2f; /* Binance Yellow */
+                letter-spacing: 2px;
+            }
+            #crypto-board {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 400px;
+                margin-top: 30px;
+            }
+            .crypto-card {
+                background-color: #1e1e1e;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #333;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .coin-name {
+                color: #ffffff;
+            }
+            /* We will use inline styles for the dynamic colors, but this keeps the text clean */
+            .price-tag {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>My Crypto Portfolio</h1>
+
+        <!--Step 1 : HTML target where to display-->
+        <div id="crypto-board">
+
+        </div>
+
+        <script>
+            // step 2 : the data (array of objects)
+            const wallet = [
+                {coin : 'bitcoin', price : 10000, trend : 'up'},
+                {coin : 'litecoin', price : 20000, trend : 'down'},
+                {coin : 'bitcoin cash', price : 50000, trend : 'up'}
+            ]
+
+            //step 3 : arrow fn to define the logic
+            let loadDashboard = ()=>{
+                // step 4 : conditional styling
+
+                //find where to display and get the address
+                let displayarea = document.getElementById('crypto-board')
+
+                for(let cointype of wallet)
+                {
+                    let trendcolor = ''
+                    if(cointype.trend == 'up')
+                    {
+                        trendcolor = '#00ff00' // bright green
+                    }
+                    else
+                    {
+                        trendcolor = '#ff0000' // bright red
+                    }
+                    // or ternary operator eg. let trendcolor = cointype.trend == 'up' ? "bright green" : "bright red" 
+
+                    // step 5 : DOM injection
+                    let htmlcontent = `<div class="crypto-card">
+                        <div class="coin-name">${cointype.coin}</div>
+                        <div class="price-tag" style="color : ${trendcolor}">₹${cointype.price}</div>
+                        </div>`
+
+                    // put on webpage at address 'displayarea'
+                    displayarea.innerHTML += htmlcontent
+                }
+            }
+
+            // step 6 : trigger 
+            loadDashboard()
+
+        </script>
+
+    </body>
+
+</html>

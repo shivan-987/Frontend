@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--To render means:
+    Take data → convert it into UI → display it on the screen.
+    It’s the process of drawing or updating what the user sees.
+    
+    eg.
+    function renderUser(user) {
+  document.getElementById("name").textContent = user.name;
+  }
+
+  GET DATA : using API calls
+  SHOW DATA : by rendering
+-->
+
+
+
+    <div id="container"></div>
+    <script>
+        /*
+        what is js
+        variables - var let const
+        datatypes- string ,numbers ,boolean,undefined , null    and array, obj, functions
+        conditions -2 if else if   else
+        loops- for ,while, do while ,for in and for off
+
+
+        break 
+        it is a keyword that is used to terminate the execution of a code
+        
+        continue
+        functions
+        scopes
+        closures
+
+        example
+
+
+        let attempts=0
+        let password='1234'
+
+        while(true){
+        let inp=prompt('enter your password')
+        
+        if(inp==password){
+        console.log('welcome to your banking applicaton')
+        break;
+        }
+        if(attempts==3){
+        console.log('your account is blocked , try after 24hours')
+        break;
+        }
+        attempts++
+        }
+
+
+        let details=[
+        {name:'milk packet', id:343,status:'expired'},
+        {name:'bread', id:34933,status:'not expired'},
+        {name:'yogurt packet', id:3423,status:'expired'},
+        {name:'ghee packet', id:34343,status:'not expired'},
+        {name:'chesse packet', id:34333,status:'expired'}
+        ]
+        
+
+        
+        for (i of details){
+            if(i.status=='expired') continue
+            console.log(i.name , i.id)
+        }
+
+
+        functions
+        functions are reusable block of code that is used to perform a specific task
+        when something invokes it (calling)
+
+        defining a function
+        functions are defined function keyword followed by funname followed by () may
+        include parameters and follow by {//block of code}
+
+        function funname(a){
+        console.log(a)
+        }
+
+        invoking a function
+        funname('ram')
+        funname('raj')
+        funname('rani')
+
+        important points in a function
+        1) function name store function definition
+            console.log(funname)
+        2) logging(printing) of the function calling will give you the return value
+        console.log(funname())---execution and return value
+        3) statements after return will not be executed  
+        4) named functions can only be hoisted
+
+
+        
+        function funname(a='guest') {
+            console.log(a)
+            return 'hello'
+            console.log('hi')
+        }
+
+        funname('ram')
+        funname('raj')
+        funname('rani')
+
+
+        funname('teja')//calling
+        console.log(funname)//defintion
+        console.log(funname())//execution +return valu
+        
+        
+        function outer(){
+            let count=0
+            console.log('outer executed')
+            return function(){
+                count++
+                console.log(count)
+            }
+        }
+
+    //  outer()()//two times//1
+    //  outer()()//two times//1
+
+    // closure- when an inner function having access to the variable which is
+    // declared in outer function and can able to change even after the execution
+    let a=outer()
+    a()//1
+    a()//2
+    a()//3
+    a()//4
+
+
+
+    types of functions
+    1) named function
+    2) annomous function
+    a=function(){
+    console.log('hellow')
+    }
+    3) arrow function
+       let fun=(a,b)=>{
+    console.log(a+b)
+   }
+   fun(1,2)
+   
+   // calback function
+   // when a function takes another function as an argument and executes later
+   let fun = (a, b, c) => {
+    console.log(a + b, c()) // use to ensure sequential execution i.e. first fun() then greet()
+}
+fun(1, 2, greet)
+
+function greet() {
+    return 'hello'
+}
+
+
+let founder='sairam'//global scope
+
+{
+// block scope
+let trainer='teja'
+console.log(trainer)
+}
+
+function session(){
+// local scope or function scope
+    let student='varshita'
+    console.log(student)
+}
+session()
+
+let a=(name,age)=>{
+    console.log(name,age)
+}
+a('sankal',22)
+a('begum',21)
+
+*/
+
+let stddata=[
+    {name:'raj',marks:90},
+    {name:'ram',marks:70},
+    {name:'rani',marks:30},
+]
+
+for (i of stddata){
+    let grade=''
+    if(i.marks>70){
+        grade='A'
+    }else if(i.marks>35){
+        grade='B'
+    }else{
+        grade='F'
+    }
+   
+    let output=`
+    <h1>${i.name}</h1>
+    <div>${i.marks}</div>
+    <h2>${grade}</h2>
+    `
+    /*
+    .getElement*() (html based) methods and the querySelector*() (css based) methods are two families of APIs used to find elements in the HTML document.*/
+
+    let container=document.getElementById('container')
+
+    //innerHTML, innerText, .value (in forms) and similar properties are DOM element 
+    // content‑manipulation methods/properties that let you read or change what’s inside an HTML element.
+
+    container.innerHTML+=output
+}
+
+
+    </script>
+
+</body>
+
+</html>
