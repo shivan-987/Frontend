@@ -79,19 +79,19 @@
                 let developer_data = await raw_dev_data.json()
 
                 //get the card fields
-                dev_dp = document.getElementById('devAvatar')
+                let dev_dp = document.getElementById('devAvatar')
                 dev_dp.src = developer_data.avatar_url 
 
-                dev_uname = document.getElementById('devName')
+                let dev_uname = document.getElementById('devName')
                 dev_uname.innerHTML = developer_data.name || "no Name found"
                 
-                dev_bio = document.getElementById('devBio')
+                let dev_bio = document.getElementById('devBio')
                 dev_bio.innerHTML = developer_data.bio || "no Bio found"
 
-                dev_repo = document.getElementById('devRepos')
+                let dev_repo = document.getElementById('devRepos')
                 dev_repo.innerHTML = developer_data.public_repos
 
-                dev_followers = document.getElementById('devFollowers')
+                let dev_followers = document.getElementById('devFollowers')
                 dev_followers.innerHTML = developer_data.followers
 
                 //hide loader and display card
