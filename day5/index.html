@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS template</title>
+
+
+        <style>
+            /*universal selector *
+            means apply to every element*/
+            *{
+                margin: 0;
+                padding:0;
+                box-sizing:border-box; /*width and height of element
+                includes content, padding and border*/
+            }
+            header{
+                background-color: rgb(18, 18, 64);
+                text-align: center;/*for text in center*/
+                padding:30px;
+            }
+            /*combinator-> 1)
+            child selector : select element via its parent eg. header > a i.e. a inside header */
+            header>a{
+                background-color: rgb(37, 125, 247);
+                color:white;
+                padding:20px;
+                border-radius: 10px; /*to get roundness*/
+                margin: 10px;
+            }
+
+            .main{
+                background-image: url('https://media.istockphoto.com/id/1250984508/photo/css-stylesheet-on-a-screen-programming-concept.jpg?s=612x612&w=0&k=20&c=0s6mYtGluuhXQTz9pxDg-rwl2s2_3g_MBnOK4s8co18=');
+                height:500px;background-repeat: no-repeat;
+                color: white;
+                text-align: center;
+                background-size:100% 100%; /*size 100% in x and y axes*/
+                /*to bring image top-center -> center-center */
+                padding-top:200px; 
+                /*to make image less prominent than text i.e. make bground dull*/
+                background-image: linear-gradient(rgba(0,0,0,0.6)
+                rgba(0,0,0,0.6)), url('https://media.istockphoto.com/id/1250984508/photo/css-stylesheet-on-a-screen-programming-concept.jpg?s=612x612&w=0&k=20&c=0s6mYtGluuhXQTz9pxDg-rwl2s2_3g_MBnOK4s8co18=');
+            }
+
+            .colors{
+                background-color: whitesmoke;
+                text-align: center;
+                color:black;
+                padding-top:50px;
+                height:300px;
+                width: 100%;
+            }
+
+            .box{
+                width:150px;
+                height:100px;
+                color:white;
+                background-color: red;
+                display: inline-block;
+                margin: 30px;
+                padding-top: 40px;
+                border-radius: 10px;
+                /*to bend borders around corners*/
+                text-shadow: 2px 2px 2px black;
+                box-shadow: 2px 2px 2px 2px yellowgreen;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 1rem;
+                font-weight: 100;
+                font-style:italic;
+            }
+
+            .box-model{
+                background-color: white;
+                width:100%;
+                height:400px;
+                text-align: center;
+                padding-top: 100px;
+            }
+            .child_card{
+                background-color: rgb(121, 235, 235);
+                border: 3px solid blue;
+                border-radius: 5px; /*to bend borders around corners*/
+                text-align: center;
+                /*side by side*/
+                display: inline-block;
+                height: 150px;
+                width:250px;
+                padding:25px;/*space btwn element border and content*/
+                margin:20px;
+            }
+            /*
+            1. font properties:=
+                font-size:2rem; //1 rem = 16px => 2rem = 2x16=32px
+                font-family:...;
+                font-weight:..px; //thickness of font-letters 
+                font-style :normal/bold/oblique
+
+            2. text properties:=
+                text-align : center/left/right
+                text-shadow: (shadow for text) 1px 1px 5px red; horizonal_offset vertical-offset blur-radius color;  
+                box-shadow:(for entire <div>) 1px 1px 2px 5px red; horizonal_offset vertical-offset blur-radius spread-radius color;
+            */
+
+            .fonts{
+                height: 500px;
+                width: 100%;
+                background-color: azure;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight:100;
+                font-style: italic;
+                text-align: center;
+                padding:50px;
+                letter-spacing: 2ch; /*space btwn characters*/
+            }
+
+            footer{
+                background-color: rgb(18, 18, 64);
+                color:wheat;
+                height: 100px;
+                text-align: center;
+                padding:40px;
+                font-style: bold;
+                letter-spacing: 1px;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Services</a>
+            <a href="">Contact</a>
+        </header>
+
+        <section class="main">
+            <h1>CSS template bulding project</h1>
+            <br>
+            <p>Using box-model, internal css, inline/block elements.</p>
+        </section>
+
+        <section class="colors">
+            <h1>CSS colors</h1>
+        <!--can also use ul and li and style using .colors>ul>li (inside colors inside ul style li)*/-->
+            <div class="box" style="background-color: red;">BOX1</div>
+            <div class="box" style="background-color: blue;">BOX2</div>
+            <div class="box" style="background-color: green;">BOX3</div>
+            <div class="box" style="background-color: purple;">BOX4</div>
+        </section>
+
+        <section class="box-model">
+            <h1>CSS BOX MODEL</h1>
+            <div class="parent_card" style="margin: 30px;">
+                <div class="child_card">
+                    <h4>Card 1</h4>
+                    <p>this card demonstrates padding, border, margin,width and background color.</p>
+                </div>
+                <div class="child_card">
+                    <h4>Card 2</h4>
+                    <p>The space outside : margin.
+                        the space inside : padding and border is blue.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fonts">
+            <h1>CSS fonts</h1>
+            <p style="font-weight: 100; font-size: 1rem; padding: 50px;">light font weight-300</p>
+            <p style="font-weight: 400; font-size: 2rem;padding: 50px;">normal font weight-400</p>
+            <p style="font-weight: 700; font-size: 3rem;padding: 50px;">bold font weight-700</p>
+        </section>
+
+
+        <footer>
+            <p>CSS Learning Project Template</p>
+        </footer>
+
+    </body>
+
+</html>
