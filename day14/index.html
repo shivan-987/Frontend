@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>es 6</title>
+    </head>
+
+    <body>
+        <!--es6 version of javascript
+        
+        1.declaration, assignment, initialization, hoisting
+        var v/s let v/s const
+        (interview Q : impp)
+        a)var
+        var a=10;
+        var a=20; logging gives 20 i.e. 
+        disadvantage : var allows redeclartion IN THE SAME SCOPE
+        assignment allowed
+        allows initialzation
+        hoisting ALLOWED i.e. hoisted to top of scope, but initialized to 'undefined' so accessing before declaration : 'undefined'
+        scope : global, local(function)
+        usecase : legacy , so better not to use
+        
+        b)let 
+        DON't allow redeclaration IN THE SAME SCOPE
+        reassignment allowed
+        allows initialzation
+        hoisting ONLY ALLOWED IN Temporal dead zone(TDZ) i.e. hoisted to top of scope, but UNintialized, remain in TDZ until the line of declaration is reached
+        accessing them before reaching the line of declaration : ReferenceError
+        scope : global, local(function), block
+        usecase : better to use preferablly
+
+        c)const
+        DON't allow redeclaration
+        ONLY allows initialization(READ-ONLY)
+        DONT' allow reassignment
+        hoisting ONLY ALLOWED IN Temporal dead zone(TDZ) i.e. hoisted to top of scope, but UNintialized, remain in TDZ until the line of declaration is reached
+        accessing them before reaching the line of declaration : ReferenceError
+        scope : global, local(function), block
+        usecase : use only if req read-only variable
+
+        arrow fn
+        -no 'function' keyword
+        -only fn name and =>
+        -more concised way of writing a fn
+
+        named fn
+        eg. function sum(a,b)
+        {
+            return a+b
+        }
+        then 
+
+        arrow fn
+        let sum = (a,b)=>{
+            return a+b
+        }
+        
+        (just understand, better not to use, since they are used in particular cases only):
+        i.)we can eliminate {} and return because it automatically applies 'return' 
+        when no {} is used.(only when single line of code ONLY)
+        i.e.
+        let sum = (a,b)=>a+b
+
+        ii.)we can eliminate () when there is a single parameter only.
+        i.e
+        let sum = a=> a+a
+
+
+        III. local storage(eg. sometimes some games despite no login(no database)
+        , when we return, it continues from same place -> stored locally ON BROWSER)
+        eg.
+        let data ='hello'
+        let data2=123
+        let data3 = [{name:'john'}]
+
+        // right click, go to Application -> local storage
+        localStorage.setItem('d1', data) 
+        localStorage.setItem('d2', data2)
+        //but object value not shown, since diff language have diff syntax
+        for object/dictionary => common type of storing and transfer : JavaScript Object Notation(json)
+        localStorage.setItem('d3', data3)
+        // to see this value
+        localStorage.setItem('d3', JSON.stringfy(data3))
+
+        eg. let a = localStorage.getItem('d1')
+            let b = localStorage.getItem('d2')
+            // parse() : json object -> js object
+            let c = JSON.parse(localStorage.getItem('d3'))
+
+        if once you set an item into localStorage, it gets stored there
+        almost permanently until developer modifies them.
+        they can survive page reloads and browser open-close.
+        (v/s sessionStorage doesn't survive page reloads and browser open-close)
+
+        // right click, go to Application -> session storage
+        eg. let yoga='abc'
+        sessionStorage.setItem(yoga)
+
+
+        [IV.] 
+        (VV.IMPP used in react, js practically in place of for-of and for-in)
+        map() : used to create a transformed array by applying a provided fn 
+        to every ele(use callback fn)
+        eg. let a = [1,2,3]
+        let data = a.map((val, ind, ar)=>{
+            console.log(val) //1,2,3 (element of arr a)
+            console.log(ind) //0,1,2 
+            console.log(ar) // [1,2,3] 3 times since 3 elements(applies on each ele)
+        })
+
+        // for loop but better for repeating same operation on every ele
+        or returns tranformed array(if we define)
+        eg. let a = [{name:'john', age:25}, {name:'joy'}, age:13]
+        let data = a.map(function(val, ind, ar)=>{
+            console.log(val.name) // john, joy
+        }
+
+        [V.]
+        (VV.IMPP used in react, js practically in place of for-of and for-in)
+        filter() : used to create a filtered array by applying a boolean fn
+        for every element
+        let filtereddata = a.filter((val,ind,ar)=>{
+            return val%2==0 // return array consisting of only ele div by 2
+        })
+
+        let inp = prompt('enter age : ')
+        let filtereddata = a.filter((val,ind,ar)=>{
+            return val % inp == 0 // return array of elements only 
+            div by 'inp' from array 'a'
+        })
+
+        [VI.]
+        reduce() : used to reduce the array of elements into single value.
+        eg. total of all items added to cart
+        let arr [1,2,3]
+        let total = arr.reduce((accumulator, val, index, array)=>{
+            return accumulator + val
+        }, 0) //initial acc = 0
+        -->
+
+        <script>
+
+            let playlist = [
+                {name:'despacito' ,language : 'spanish'},
+                {name:'dusk till dawn' ,language : 'english'},
+                {name:'banjaara' ,language : 'hindi'}
+            ]
+
+            let songs = playlist.map(function(val) //only key/value
+            {
+                console.log(val.name) 
+                return val.name
+            })
+            console.log(songs) // returns tranformed array of only names
+
+
+            let music = playlist.map(function(val, index) //key/value index
+            {
+                console.log(val.name, index) 
+                return index, val.name
+            })
+            console.log(music) // returns tranformed array of only names
+        </script>
+
+    </body>
+</html>

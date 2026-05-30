@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 JS</title>
+        <link rel="stylesheet" href="budget.css">
+    </head>
+    <body>
+        <div class="dashboard">
+            <div class="balance-box">
+                <div class="balance-text">Total Spent</div>
+                <div class="balance-amount" id="totalDisplay">&#8377 0</div>
+            </div>
+
+            <input type="text" placeholder="enter expense name" id="ename">
+            <input type="number" placeholder="enter amount" id="amt">
+
+            <button onclick="addTransaction()">Add Expense</button>
+
+            <button class="filter-btn" onclick="filterHighExpenses()">Show Only > &#8377 50</button>
+
+            <div id="list-board"></div>
+        </div>
+
+        <script src="budget.js"></script>
+    </body>
+</html>

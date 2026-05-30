@@ -1,0 +1,38 @@
+
+* {
+ box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif; }
+body {
+     background: #f4f7f6; 
+    display: flex;
+     justify-content: center; 
+     padding-top: 50px; 
+     margin: 0; }
+.dashboard { 
+    background: white;
+     padding: 30px;
+      border-radius: 12px;
+       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        width: 400px; }
+h2 { 
+    text-align: center;
+     color: #2c3e50; 
+     margin-top: 0; }
+.balance-box { 
+    background: #e8f5e9;
+     padding: 20px; 
+     border-radius: 8px;
+      text-align: center;
+       margin-bottom: 20px;
+        border: 2px solid #4caf50; }
+.balance-text { font-size: 14px; color: #2e7d32; font-weight: bold; text-transform: uppercase; }
+.balance-amount { font-size: 32px; color: #1b5e20; font-weight: bold; margin-top: 5px; }
+.input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+button { padding: 10px 15px; background: #2c3e50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+button:hover { background: #1a252f; }
+.filter-btn { background: #3498db; width: 100%; margin-bottom: 20px; }
+.filter-btn:hover { background: #2980b9; }
+.transaction { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #eee; }
+.t-name { font-weight: bold; color: #333; }
+.t-amount { color: #e74c3c; font-weight: bold; }
