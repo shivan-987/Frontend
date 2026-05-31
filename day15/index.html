@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>spread operator, local storage etc and a project</title>
+    </head>
+
+    <body>
+        
+        <script>
+
+            /*
+            
+            [1.]shallow and deep copy {spread operator} (interview Q)
+            
+            a.) shallow copy : assigning/copy a reference rather than value
+
+            eg.
+            let a = [1,2,3] 
+            let b = a //assigned/copied reference/id not values
+            b[0] = 'html' // since both a,b have same reference, CHANGE IN BOTH
+            console.log(a) //['html',2,3]
+            console.log(b) //['html',2,3]
+            // b is shallow copy of a
+
+            
+            b) deep copy : actual copy .i.e assigning/copy values
+            using spread operator ...
+            used in strings, arrays, objects
+
+            eg.
+            let a = [1,2,3]
+            let b = [...a] //b is deep copy of a : since assigned/copied values
+            b[0] = 'html' // since b,a have diff references, so ONLY CHANGE IN B
+            console.log(a) //[1,2,3]
+            console.log(b) // ['html',2,3]
+
+            let obj1 = {name:'manu'}
+            let obj2 = {age:24}
+            let obj3 = {...obj1,...obj2} // merges both objects into 1
+            console.log(obj3)
+
+            let str = 'hello'
+            // use case : string -> array
+            arrstr = [...str]
+            console.log(arrstr)
+
+            [2.] destructuring :
+            it is a process of extracting values frm obj,arrays and
+            assigning to variables.
+
+            eg.
+            //tech = frontend(static webpg + dynamic) + backend(database + logic language)
+            let tech = [[['html','css'], ['js','react']], [['mysql', 'mongodb'], ['python', 'flask']]]
+            // to access 'mongodb'
+            console.log(tech[1][0][1]) // its tedious to use
+            //soln : destructuring
+
+            let [[static, dynamic], [database,backend]] = tech
+            console.log(static) //['html','css']
+            console.log(dynamic) //['js','react']
+            console.log(backend) //['python', 'flask']
+            // to access mongodb
+            console.log(database[1])
+
+            let obj = {
+                name : 'john',
+                age : 35,
+                address :{
+                    city:'mumbai',
+                    state:'maharashtra'
+                }
+            }
+            // without destructuring :access state
+            console.log(obj.address.state)
+            //uusing destructuring
+            let {name, age, address:{city, state}} = obj
+            console.log(name) //john
+            console.log(age) //35
+            console.log(state) // get the state
+
+            */
+
+
+
+
+        </script>
+
+
+
+    </body>
+
+</html>

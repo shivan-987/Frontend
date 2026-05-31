@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Destructuring and Spread operator</title>
+
+        <style>
+        /* Reset and Base Styles */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+        }
+
+        body { 
+            background-color: #0f172a; /* Deep slate blue */
+            color: #e2e8f0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            flex-direction: column; 
+        }
+
+        /* Main Container */
+        .container {
+            background: #1e293b;
+            width: 450px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+        }
+
+        h2 {
+            text-align: center;
+            color: #38bdf8; /* Light neon blue */
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* Form Elements */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #94a3b8;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0f172a;
+            color: #f8fafc;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        input::placeholder {
+            color: #475569;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Output Area */
+        #output {
+            margin-top: 25px;
+            padding: 15px;
+            background: #020617;
+            border-left: 4px solid #10b981; /* Emerald green accent */
+            border-radius: 4px;
+            color: #10b981;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 50px;
+            display: none; /* Hidden until data is merged */
+        }
+    </style>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <h2>Tech Stack Merger</h2>
+
+            <div class="input-group">
+                <label for="frontend">Provide the Frontend Technologies</label>
+                <input type="text" placeholder="frontend" id="frontend">
+                <br><br>
+                <label for="backend">Provide the Backend Technologies</label>
+                <input type="text" placeholder="backend" id="backend">
+            </div>
+
+            <button onclick="mergeTech()">Merge Stacks</button>
+
+
+            <div id="output">
+                a
+            </div>
+
+
+            <script>
+
+                let mergeTech = () =>{
+                    // get input values from the elements, convert string to array by splitting about comma
+                    let fend = document.getElementById('frontend').value.split(',')
+                    let bend = document.getElementById('backend').value.split(',')
+                    console.log(fend)
+                    console.log(bend)
+
+                    //clear input values
+                    document.getElementById('frontend').value = ''
+                    document.getElementById('backend').value = ''
+
+                    //merge both stacks using spread op
+                    let full_stack = [...fend, ...bend]
+                    console.log(full_stack)
+
+                    // using destructuring to get elements
+                    let [first, last] = [full_stack[0], full_stack[full_stack.length -1]]
+
+                    //metd 2:
+                    /*
+                    let [first, second] = full_stack;
+                    let [last] = full_stack.at(-1)
+                    */
+                    
+                    console.log(first)
+                    console.log(last)
+
+                    // get addr of where to display result
+                    let display_area = document.getElementById('output')
+
+                    // make this area visible
+                    display_area.style.display = 'block'
+
+                    let msg = `Your full stack contains ${full_stack.length} Technologies. <br>
+                    It starts with "${first}" and ends with "${last}".`
+
+                    //display on html element
+                    display_area.innerHTML = msg
+
+                }
+
+
+
+            </script>
+
+
+
+        </div>
+
+
+
+    </body>
+
+</html>
