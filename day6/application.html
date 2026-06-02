@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Application</title>
+        <script src="https://kit.fontawesome.com/1e927f7c85.js" crossorigin="anonymous"></script>
+    </head>
+
+    <style>
+        *{/*generally common to all webpages*/
+            padding:0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        /*parent for left and right child*/
+        header{
+            background-color: rgb(23, 19, 19);
+            color:white;
+            /*card side by side*/
+            display:flex;
+            /*on X-axis*/
+            justify-content: space-between;/*left card/ on left, right on extreme right*/
+            padding: 20px 30px;/*top-bottom right-left*/
+            /*Y-axis*/
+            align-items: center;/*all items in parent, must in center of y-axis OF the parent not body*/
+        }
+
+        /*left child is also parent of div and h2*/
+        .left_child{
+            /*display side by side*/
+            display:flex;
+            gap:10px;
+            align-items: center;
+        }
+
+        /*right child is also parent of div * 5 */
+        .right_child{
+            /*display side by side*/
+            display:flex;
+            gap:20px;/*space btwn each card*/
+            align-items: center;
+        }
+
+        .left_child>div{
+            border: 2px solid rgb(36, 198, 36);/*to get a box shape around 'JD'*/
+            padding:5px; /*space btwn border and 'JD'*/
+            color: #24c624;
+        }
+
+        .s1{
+            background-color: rgb(23, 19, 19);
+            color:white;
+            padding:20px 40px;
+            /*cards side by side*/
+            display: flex;
+            height: 70vh;
+            align-items: center;
+        }
+
+        /*div is child of s1*/
+        .s1>div{
+            flex-basis: 50%; /*each child 50% of s1 space*/
+        }
+
+        img{
+            width:100%;
+        }
+
+        .s1>div>h3{
+            padding-bottom:20px;
+            font-size: 4rem;
+        }
+
+        .s1>div>h4{
+            padding-bottom:30px;
+            font-size: 2rem;
+        }
+        
+        .s1>div>p{
+            padding-bottom:30px;
+            font-size: 1rem;
+        }
+
+        #b1{
+            padding:10px;
+            border: 2px solid rgb(36, 198, 36);
+            border-radius: 10px;
+            background-color: rgb(23, 19, 19);
+            color: white;
+        }
+
+        #b1:hover{
+            background-color: rgb(36, 198, 36);
+            color:black;
+        }
+
+        #b2{
+            padding:10px;
+            border: 2px solid rgb(36, 198, 36);
+            border-radius: 10px;
+            background-color: rgb(23, 19, 19);
+            color: white;
+        }
+
+        #b2:hover{
+            background-color: rgb(36, 198, 36);
+            color:black;
+        }
+
+
+        .s2{
+            background-color: rgb(23, 19, 19);
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            padding-bottom: 20px;
+        }
+
+        .s2>div{
+            background-color: rgba(51, 38, 38, 0.88);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:90%;
+            height:90%;
+        }
+
+        .s2>div>h1{
+            background-color: #24c624;
+        }
+
+        .s3{
+            background-color: rgb(23, 19, 19);
+            padding-top: 20px 4px;
+            color:white;
+            text-align: center;
+        }
+
+        .parent{
+            /*display cards side by side*/
+            display: flex;
+            align-items: center;
+            height: 60vh;
+            gap:10px;
+        }
+
+        .s3>.parent>.card{
+            flex-basis: 20%;/*each card takes only 20 %*/
+            background-color: rgb(29, 29, 29);
+
+        }
+
+        .card>div>i{
+            color:green;
+            margin: 10px;   
+        }
+
+        .card>h3{
+            margin: 10px;
+        }
+
+
+        .projects{
+            background-color: rgb(23, 19, 19);
+            padding-top: 20px 4px;
+            color:white;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .projects>.projects_parent{
+            display: flex;
+            gap:20px;
+        }
+
+        .projects>.projects_parent>.projects_child>button{
+            padding:10px;
+            border: 2px solid rgb(36, 198, 36);
+            border-radius: 10px;
+            background-color: rgb(23, 19, 19);
+            color: white;
+            margin: 10px;
+        }
+
+        .projects>.projects_parent>.projects_child>button:hover{
+            background-color: rgb(36, 198, 36);
+            color:black;
+        }
+
+        .projects>.projects_parent>.projects_child>p, .projects>.projects_parent>.projects_child>h3{
+            margin: 10px;
+        }
+
+        img{
+            margin: 10px;
+        }
+
+        table{
+            margin: 30px;
+        }
+        td{
+            padding: 20px;
+
+        }
+
+        th{
+            background-color: #24c624;
+            padding: 20px;
+        }
+
+        footer{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(23, 19, 19);
+            padding-top: 20px 4px;
+            color:white;
+            text-align: center;
+            padding-bottom: 20px;
+            gap:10px;
+        }
+
+        .footer>div{
+            flex-basis: 50%;
+        }
+
+        .projects1{
+            background-color: rgb(23, 19, 19);
+            padding-top: 20px 4px;
+            color:white;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .projects1>.p{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 90px;
+        }
+
+        .projects1>.p>.l>h2{
+            padding:10px;
+        }
+
+        .projects1>.p>.l>ul{
+            padding:20px;
+        }
+
+        .projects1>.p>.l>ul>li{
+            padding : 5px;
+        }
+
+        ul li::marker {
+             color: #24c624;
+             font-size: 30px; /* optional: make bullets bigger */
+        }
+
+    </style>
+
+
+    <body>
+        
+        <!--nav-bar/header-->
+        <header>
+            <div class="left_child">
+                <div>JD</div>
+                <h2>John Doe</h2>
+            </div>
+            <div class="right_child">
+                <div>About</div>
+                <div>Achievements</div>
+                <div>Education</div>
+                <div>Projects</div>
+                <div>Contact</div>
+            </div>
+        </header>
+
+        <section class="s1">
+            <div>
+                <h3>Hi, I'm <span style="color:#24c624">John Doe</span></h3>
+                <h4>I build simple and clean websites.</h4>
+                <p>I am a web development student who loves turning ideas into real, working webpages.</p>
+                <button id="b1">View Projects</button>
+                <button id="b2">Download CV</button>
+            </div>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJtZ9Wm8Ido2pW8-RWSoHjN_oNuexIa0zpdw&s" alt="bg-image">
+            </div>
+        </section>
+
+        <section class="s2">
+            <div>
+                <div style="background-color: #24c624; padding: 10px; font-weight: bold;">FULL Stack Dev</div>
+            </div>
+        </section>
+
+        <section class="s3">
+            <h1 style="color:white; text-align: center;">What I Do</h1>
+
+            <div class="parent">
+                <div class="card">
+                    <div><i class="fa-regular fa-envelope"></i></div>
+                    <h3>Web Design</h3>
+                    <p>Design clean and attractive websites
+                    that provide great user experience.
+                    </p>
+                </div>
+                <div class="card">
+                    <div><i class="fa-solid fa-code"></i></div>
+                    <h3>Developement</h3>
+                    <p>Build responsive and functional websites
+                    using modern technologies.
+                    </p>
+                </div>
+                <div class="card">
+                    <div><i class="fa-solid fa-palette"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Create simple and user-friendly designs
+                    that look great on all devices.
+                    </p>
+                </div>
+                <div class="card">
+                    <div><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>SEO & Analytics</h3>
+                    <p>Improve website visibility and
+                    track performance with smart strategies.
+                    </p>
+                </div>
+                <div class="card">
+                    <div><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Performance</h3>
+                    <p>Optimize website for speed and ensure smooth performance.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div><i class="fa-solid fa-headset"></i></div>
+                    <h3>Support</h3>
+                    <p>Provide support and maintenance to keep websites running smoothly.   
+                    </p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="projects">
+            <h1>My Projects</h1>
+
+            <div class="projects_parent">
+                <div class="projects_child">
+                    <img src="https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/47cb162520a5cb6c736e65362526ab9b55082f74/e73c5cc3ec9ce4c8d6e28652542b6875753a226b" alt="" width="100" height="400">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal Portfolio website built using HTML 
+                        to showcase my skills and projects.
+                    </p>
+                    <button>View Project</button>
+                </div>
+
+                <div class="projects_child">
+                    <img src="https://cdn.prod.website-files.com/5eff9c5e4dba181f8aa2d1e0/5f627e51b56dbc48dfe88b70_online-registration.svg" alt="" width="100" height="400">
+                    <h3>Student registration form</h3>
+                    <p>A simple registration form created using HTML form elements.
+                    </p>
+                    <button>View Project</button>
+                </div>
+
+                <div class="projects_child">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFDm8KO2Qij17fQQvkvQpw5ol5RdyWWBADvw&s" alt="" width="100" height="400">
+                    <h3>Simple Calculator</h3>
+                    <p>A basic Calculator built using HTML,CSS and JavaScript.
+                    </p>
+                    <button>View Project</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="projects1">
+            <h1>Education</h1>
+            <table width="100%" border="1">
+                <tr>
+                    <th>Qualification</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td>High School</td>
+                    <td>XYZ high school</td>
+                    <td>2018-2020</td>
+                    <td>NYC, USA</td>
+                </tr>
+                <tr>
+                    <td>B.Tech</td>
+                    <td>XYZ University</td>
+                    <td>2022-2026</td>
+                    <td>NYC, USA</td>
+                </tr>
+            </table>
+
+        <div class="p">
+            <div class="l">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>Completed HTML and CSS fundatmentals course.</li>
+                    <li>Built mulitple small projects using HTML.</li>
+                    <li>Consistently learning and improving every day.</li>
+                    <li>Practicing problem solving and logical thinking.</li>
+                </ul>
+            </div>
+            <div class="l">
+                <h2>Contact</h2>
+                <ul>
+                    <li>Email : johndoe@gmail.com</li>
+                    <li>Phone : 1234567890</li>
+                    <li>Website : www.johndoe.com</li>
+                    <li>Location : NYC, USA</li>
+                </ul>
+            </div>
+        </div>
+        
+        </section>
+
+        <footer>
+            <div style="font-size: large;">© 2026 John Doe. All rights reserved.</div>
+            <div>
+                <i class="fa-brands fa-github" style="font-size: large;"></i>
+                <i class="fa-brands fa-linkedin" style="font-size: large;"></i>
+                <i class="fa-brands fa-x-twitter" style="font-size: large;"></i>
+            </div>
+        </footer>
+
+    </body>
+</html>

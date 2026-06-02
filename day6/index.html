@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day 5</title>
+
+        <style>
+            /*
+
+            [I.] hover (psuedo class selector)
+            - define action on hover/slide over an element
+
+            eg.
+            div{
+                background : red;
+                transition:all 2s; // take 2s to perform actions of hover
+                
+            }
+
+            div:hover{
+                background : blue;
+                margin-top:20px;
+                font-size:4rem;
+                tranform:scale(0.5);// shrinks i.e scale down
+                tranform:scale(1.5);// enlarge i.e scale up
+                tranform:rotate(360deg); //rotate once 360 deg ; if -360 ACW
+                transform:translate(100px,20px); //move in (x-axis, y-axis)
+            }
+
+            <div>content</div>
+
+
+
+
+            [II.] transition
+            
+            give time for a CHANGE IN TASK(change in property/property's value) 
+            to occur, eg. in hover(to add effects)
+
+            eg.
+            div{
+                background : red;
+                transition:all 2s; // take 2s to perform actions of hover
+                
+            }
+
+
+            [III.] transform
+            eg.
+
+            div:hover{
+                background : blue;
+                margin-top:20px;
+                font-size:4rem;
+                tranform:scale(0.5);// shrinks i.e scale down
+                tranform:scale(1.5);// enlarge i.e scale up
+                tranform:rotate(360deg); //rotate once 360 deg ; if -360 ACW
+                transform:translate(100px,20px); //move in (x-axis, y-axis)
+            }
+
+            <div>content</div>
+
+
+            [IV.] units
+            
+            1. absolute units eg.px,inch,cm,mm
+            (avoid using)
+
+            2.relative units
+            eg. % (depends on parent)
+            vh or vw(viewport height and width) : 
+            100vh almost as 100% of viewport
+            rem (1rem = 16px) in font-size
+
+
+
+
+
+
+
+            MM..IMMPP topic in CSS
+            [V.] flex 
+            (used in card instead of using multiple <div> or <ul> <li> for making cards)
+            it is a 1-D layout model that is used to create different layouts.
+
+        <!--parent-->
+        <div class="container">
+            <!--child-->
+            <div class="card">card1</div>
+
+            parent = flex container => container prop : 
+
+            .container{}
+            1.display:flex;
+            to get cards side by side
+             (create a flex box)
+        
+            
+            2. justify-content
+            used to control the items(children) on X-axis/MAIN AXIS.
+
+            eg. justify-content:center; // center of x-axis(btwn)
+            justify-content:flex-start; // start of x-axis , x=0(left)
+            justify-content:flex-end;// end of x-axis , x=x(right)
+            justify-content:space-evenly; // space btwn each card != space in start and end card i.e. space at start end is 1/2 of in between cards 
+            justify-content:space-around; // space btwn each card === space in start and end card
+
+            justify-content:space-between; // few cards at 1 end , few in center, rem in at other end
+            
+            (used in nav-bar)
+
+            3. align-items (doesn't work for alot of items)
+            used to control the items(children) on Y-axis.
+
+            align-items : center; // center of y-axis(btwn)
+            align-items : flex-start // start of y-axis i.e. y =0(top)
+            align-items : flex-end // end of y-axis i.e. y =y(bottom)
+
+            4. flex-wrap (when have too many children/items -- easy to create cards)
+            flex-wrap:wrap;
+            flex-wrap:reverse;
+
+            5. gap:20px; // space btwn each child/item
+
+            6.align-content (alt to align-items when a lot of items i.e. multiple rows)
+            used to control the items(children) on Y-axis.
+
+            align-content : center; // center of y-axis(btwn)
+            align-content : flex-start // start of y-axis i.e. y =0(down)
+            align-content : flex-start // end of y-axis i.e. y =y(up)
+            align-content:space-evenly; // equal space btwn each card
+            align-content:space-around; // space btwn each card === space in start and end card
+            align-content:space-between; // few cards at 1 end , few in center, rem in at other end
+
+            IMP..interview Q : how to center a card
+            justify-content : center; // center of x axis
+            align-items : center; // center of y-axis
+            
+            (practice on flexboxfroggy.com)
+
+            7. flex-direction
+
+            flex-direction:row; //cards : column -> rows
+            flex-direction:column; //cards : column <- rows
+            flex-direction:column-reverse; //cards : column -> reverse columns
+            flex-direction:row-reverse; //cards : rows -> reverse rows
+
+            8. flex-flow (shorthand operation)
+
+            flex-flow:row-reverse wrap; //merge 2 prop
+
+            ------------------------------------------------------------------------------
+
+
+            child = flex items (must have a parent) => item prop
+            (only on child)
+
+            1. flex basis : width of a child
+
+            flex-basis: 50%; // each item/card width is 50% of screen
+            // can also give as 'px'
+
+
+
+
+
+
+
+
+            */
+
+
+        </style>
+
+    </head>
+
+    <body>
+        
+    </div>
+
+    </body>
+</html>
