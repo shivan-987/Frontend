@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bootstrap</title>
+        <!--search bootstrap cdn-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!-- bootstrap/css media quries -->
+       <!--Bootstrap
+       i. used for responsive design(Adapting to diff screen sizes)
+       ii. no need to remember class names, just understand them
+       iii. bootstrap only involves using classes, there are many classes:
+            1. colors (contextual : each text has a specific color defined)
+                eg. text-danger (red)
+                eg. text-primary (blue)
+                eg. text-warning (yellow)
+                eg. text-light (white)
+                eg. text-dark (black)
+                eg. text-secondary (grey)
+                eg. text-success (green)
+                eg. text-info (sky blue)
+                eg. bg-danger (red)
+                eg. bg-primary (blue)
+                eg. bg-warning (yellow)
+                eg. bg-light (white)
+                eg. bg-dark (black)
+                eg. bg-secondary (grey)
+                eg. bg-success (green)
+                eg. bg-info (sky blue)
+
+            2. box model 
+                - content 
+                    w-25/50/75/100 ONLY. (width)
+                    h-25/50/75/100 ONLY. (height)
+
+                -padding
+                    p1 - p5
+                    pt1-pt5(top), px1-px5(x-axis), py1-py5(y-axis)
+
+                - margin
+                    m1-m5
+                    mt1-mt5(top), mx1-mx5(x-axis), my1-my5(y-axis)
+
+                -border
+                    border-1 to border-5
+                    border-danger (red color border)
+                    rounded
+
+            eg. <div class="bg-success text-danger w-100 px-5 py-5 border-5 border-warning border rounded">content</div>
+
+            3. container ((100% only for full screen size) / container-fluid (100% no matter screen size)
+
+            4. grid (must have a parent class = "row")
+                - (default) 1 block size = 12 IN 1 ROW i.e col-12 (12=12)
+                - if 1 row want 4 blocks, then each block size = 12/4 = 3 i.e. col-3 (3+3+3+3 = 12)
+                - if 1 row want 3 blocks, then each block size = 12/3 = 4 i.e. col-4 (4+4+4=12)
+                - if 1 row want 2 blocks, then each block size = 12/2 = 6 i.e. col-6 (6+6 = 12)
+                - if 1 row, col-5 then 1 block size = 5 another block size = 12-5= 7 (5+7=12)
+
+                bootstrap checkpoints : 
+                for screen sizes sm(small), md(medium), lg(large)
+
+       --> 
+
+        
+       <div class="row">
+            <!--1 card of block size = 6 in 1st row, remaining = 12-6=6 -->
+            <div class="col-6 bg-warning border rounded border-3">card1</div> 
+            <!--1 card of block size = 3 in 1st row, rem = 6 - 3 = 3-->
+            <div class="col-3 bg-warning border rounded border-3">card2</div>
+            <!--1 card of block size = 2 in 1st row, rem = 3 - 2 = 1-->
+            <div class="col-2 bg-warning border rounded border-3">card3</div>
+            <!--1 card of block size = 1 in 1st row, rem = 1 - 1 = 0 (end of row1)-->
+            <div class="col-1 bg-warning border rounded border-3">card4</div>
+            <!--ROW 2 starts : 1 card of size = 2, rem = 12-2=10 -->
+            <div class="col-2 bg-warning border rounded border-3">card5</div>
+            <!--ROW 2 : 1 card of size = 7, rem = 10-7=3 -->
+            <div class="col-7 bg-warning border rounded border-3">card6</div>
+            <!--ROW 2 : 1 card of size = 3, rem = 3-3=0 (end of row 2) -->
+            <div class="col-3 bg-warning border rounded border-3">card7</div>
+       </div>
+
+       <br>
+
+       <div class='container-fluid row'>
+            <!--for small screen, block-size 1, medium screen, size=2 and so on-->
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX1</div>
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX2</div>
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX3</div>
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX4</div>
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX5</div>
+            <div class="col-sm-4 col-md-3 col-lg-2 p-5 bg-primary border border-2">BOX6</div>
+            
+       </div>
+
+
+
+
+
+
+
+
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+
+</html>
