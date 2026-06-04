@@ -13,7 +13,9 @@
     <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+     <!-- to keep navbar when scrolling and to handle 2 elements overlap s
+      search : bootstrap position bootstrap z index -->
+    <nav class="position-sticky top-0 z-3 navbar navbar-expand-lg bg-body-tertiary px-5">
         <div class="container-fluid">
             <h1 class="navbar-brand" href="#">Shop<span class="text-primary">Zone</span></h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +37,32 @@
             </div>
         </div>
     </nav>
+
+
+    <!--search :  bootstrap 5 carousel (clicking images, sliding over to next image)-->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://cdn.pji.nu/product/standard/280/5587657.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT_8b-Ca2yE3K1SKk2Nwd4Du4-FT3R1QtJqJl3MDSA0m8IP97uRts40YZ5UHJYiSVuK7DR7jNRAxHVslsljqHRPO26LnVW6WMQRrELWoKujB5a5l4XSkB1BsNA" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.magnific.com/free-vector/smart-watch-realistic-image-black_1284-11873.jpg?semt=ais_hybrid&w=740&q=80" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
 
     <!-- 1st section -->
      <section class="px-5 row align-items-center my-5 bg-primary-subtle py-5">
@@ -191,7 +219,7 @@
           © 2026 ShopZone. All rights reserved.
     </footer>
     
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
 </html>
